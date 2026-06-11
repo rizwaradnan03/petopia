@@ -1,23 +1,47 @@
 #include <signature/s_movement.h>
 
 void SIGNATURE_movement::Execute(SIGNATURE_mesh* mesh){
-    float x = mesh->get_x();
+    float x = mesh->get_value().x;
 
     float mov = 2.0f;
     if(IsKeyDown(KEY_D)){
-        x += mov;
+        if(this->get_available_direction()[0] == true){
+            x += mov;
+        }
     }else if(IsKeyDown(KEY_A)){
-        x -= mov;
-    }
-
-    if(IsKeyDown(KEY_SPACE)){
-        if(this->get_jump_stock() > 0){
-            this->set_jump_stock(this->get_jump_stock() - 1);
-            this->set_elapse_jump(new std::chrono::time_point<std::chrono::high_resolution_clock>(std::chrono::high_resolution_clock::now()));
+        if(this->get_available_direction()[1]){
+            x -= mov;
         }
     }
 
-    mesh->set_x(x);
+    if(IsKeyDown(KEY_SPACE)){
+        if(this->get_available_direction()[2]){
+            if(this->get_jump_stock() > 0){
+                this->set_jump_stock(this->get_jump_stock() - 1);
+                this->set_elapse_jump(new std::chrono::time_point<std::chrono::high_resolution_clock>(std::chrono::high_resolution_clock::now()));
+            }
+        }
+    }
+
+    if(this->get_available_direction()[3] == true){
+        if(this->get_elapse_jump() != nullptr){
+            std::chrono::time_point<std::chrono::high_resolution_clock> currentTime = std::chrono::high_resolution_clock::now();
+            
+            std::chrono::duration<float> differ = currentTime - *this->get_elapse_jump();
+            if(differ.count() < 0.5f){
+                mesh->get_value().y += mov;
+            }else{
+                this->set_elapse_jump(nullptr);
+            }
+        }
+    }else{
+        this->set_elapse_jump(nullptr);
+        this->set_jump_stock(3);
+    }
+
+
+    mesh->get_value().x = x;
+    this->reset_avail();
 }
 
 std::string SIGNATURE_movement::get_movement_state(){
@@ -42,4 +66,16 @@ std::chrono::time_point<std::chrono::high_resolution_clock>* SIGNATURE_movement:
 
 void SIGNATURE_movement::set_elapse_jump(std::chrono::time_point<std::chrono::high_resolution_clock>* value){
     this->elapse_jump = value;
+}
+
+std::vector<bool> SIGNATURE_movement::get_available_direction(){
+    return this->available_direction;
+}
+
+void SIGNATURE_movement::set_available_direction(std::vector<bool> value){
+    this->available_direction = value;
+}
+
+void SIGNATURE_movement::reset_avail(){
+    this->set_available_direction({true, true, true, true});
 }

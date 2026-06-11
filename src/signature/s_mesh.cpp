@@ -1,24 +1,15 @@
 #include <signature/s_mesh.h>
 
 SIGNATURE_mesh::SIGNATURE_mesh(MeshInit value){
-    this->set_x(value.x);
-    this->set_y(value.y);
+    this->set_value(value);
 }
 
-float SIGNATURE_mesh::get_x(){
-    return this->x;
+MeshInit& SIGNATURE_mesh::get_value(){
+    return this->value;
 }
 
-void SIGNATURE_mesh::set_x(float value){
-    this->x = value;
-}
-
-float SIGNATURE_mesh::get_y(){
-    return this->y;
-}
-
-void SIGNATURE_mesh::set_y(float value){
-    this->y = value;
+void SIGNATURE_mesh::set_value(MeshInit value){
+    this->value = value;
 }
 
 Texture2D SIGNATURE_mesh::get_texture(){
@@ -30,5 +21,10 @@ void SIGNATURE_mesh::set_texture(Texture2D value){
 }
 
 void SIGNATURE_mesh::Execute(){
-    
+    MeshInit m = this->get_value();
+
+    Rectangle source = {0, 0, m.w, m.h};
+    Vector2 position = {m.x, m.y};
+
+    DrawTextureRec(m.texture, source, position, WHITE);
 }

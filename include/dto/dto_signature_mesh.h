@@ -6,6 +6,8 @@
 struct MeshInit {
     float x;
     float y;
+    float w;
+    float h;
     Texture2D texture;
 };
 

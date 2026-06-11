@@ -7,5 +7,6 @@
 #include <string>
 #include <chrono>
 #include <sstream>
+#include <cstdint>
 
 #endif
