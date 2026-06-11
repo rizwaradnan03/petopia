@@ -4,8 +4,8 @@
 #include <config/c_pch.h>
 
 struct MeshInit {
-    int x;
-    int y;
+    float x;
+    float y;
     Texture2D texture;
 };
 

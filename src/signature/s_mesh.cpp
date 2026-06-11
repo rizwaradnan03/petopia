@@ -5,19 +5,19 @@ SIGNATURE_mesh::SIGNATURE_mesh(MeshInit value){
     this->set_y(value.y);
 }
 
-int SIGNATURE_mesh::get_x(){
+float SIGNATURE_mesh::get_x(){
     return this->x;
 }
 
-void SIGNATURE_mesh::set_x(int value){
+void SIGNATURE_mesh::set_x(float value){
     this->x = value;
 }
 
-int SIGNATURE_mesh::get_y(){
+float SIGNATURE_mesh::get_y(){
     return this->y;
 }
 
-void SIGNATURE_mesh::set_y(int value){
+void SIGNATURE_mesh::set_y(float value){
     this->y = value;
 }
 
@@ -27,4 +27,8 @@ Texture2D SIGNATURE_mesh::get_texture(){
 
 void SIGNATURE_mesh::set_texture(Texture2D value){
     this->texture = value;
+}
+
+void SIGNATURE_mesh::Execute(){
+    
 }

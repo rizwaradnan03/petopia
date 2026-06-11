@@ -7,11 +7,11 @@ class SIGNATURE_mesh {
     public:
         SIGNATURE_mesh(MeshInit value);
 
-        int get_x();
-        void set_x(int value);
+        float get_x();
+        void set_x(float value);
 
-        int get_y();
-        void set_y(int value);
+        float get_y();
+        void set_y(float value);
 
         Texture2D get_texture();
         void set_texture(Texture2D value);
@@ -19,8 +19,8 @@ class SIGNATURE_mesh {
         void Execute();
 
     private:
-        int x;
-        int y;
+        float x;
+        float y;
         Texture2D texture;
 };
 
