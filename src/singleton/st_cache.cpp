@@ -1,4 +1,6 @@
 #include <singleton/st_cache.h>
+#include <nodes/2d/body/body.h>
+#include <nodes/2d/gui/gui.h>
 
 SINGLETON_cache* G_cache = nullptr;
 

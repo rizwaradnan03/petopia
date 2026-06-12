@@ -1,7 +1,7 @@
 #ifndef DTO_RENDER_CHANGE_SCREEN_H
 #define DTO_RENDER_CHANGE_SCREEN_H
 
-enum DtoRenderWorldType {
+enum DtoRenderType {
     WORLD,
     GUI
 };

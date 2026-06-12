@@ -3,6 +3,8 @@
 
 class RenderType {
     public:
+        RenderType();
+
         void Execute();        
 };
 

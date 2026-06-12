@@ -10,14 +10,16 @@ void SINGLETON_render::set_select(RenderType* value){
     this->select = value;
 }
 
-void SINGLETON_render::change_screen(DtoRenderWorldType worldType){
+void SINGLETON_render::change_screen(DtoRenderType worldType, std::string screenName){
     RenderType* rt;
 
-    if(worldType == DtoRenderWorldType::WORLD){
-        // rt = new RENDER_TYPE_world();
-    }else if(worldType == DtoRenderWorldType::GUI){
+    if(worldType == DtoRenderType::WORLD){
+        rt = new RENDER_TYPE_world(screenName);
+    }else if(worldType == DtoRenderType::GUI){
         // rt = new RENDER_TYPE_gui()
     }
+
+    this->set_select(rt);
 }
 
 void SINGLETON_render::Execute(){
