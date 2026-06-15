@@ -20,6 +20,22 @@ void SIGNATURE_mesh::set_texture(Texture2D value){
     this->texture = value;
 }
 
+float SIGNATURE_mesh::get_right_position(){
+    return this->get_value().x + (this->get_value().w / 2);
+}
+
+float SIGNATURE_mesh::get_left_position(){
+    return this->get_value().x - (this->get_value().w / 2);
+}
+
+float SIGNATURE_mesh::get_top_position(){
+    return this->get_value().y + (this->get_value().h / 2);
+}
+
+float SIGNATURE_mesh::get_bottom_position(){
+    return this->get_value().y - (this->get_value().h / 2);
+}
+
 void SIGNATURE_mesh::Execute(){
     MeshInit m = this->get_value();
 

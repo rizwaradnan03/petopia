@@ -1,0 +1,6 @@
+#ifndef PARTICLE_GUI_INVENTORY_H
+#define PARTICLE_GUI_INVENTORY_H
+
+
+
+#endif

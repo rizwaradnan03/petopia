@@ -3,5 +3,5 @@
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
     "C_Cpp.default.cppStandard": "c++20",
     "C_Cpp.default.cStandard": "c11",
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "disabled"
 }

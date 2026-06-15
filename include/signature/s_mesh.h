@@ -13,6 +13,11 @@ class SIGNATURE_mesh {
         Texture2D get_texture();
         void set_texture(Texture2D value);
 
+        float get_right_position();
+        float get_left_position();
+        float get_top_position();
+        float get_bottom_position();
+
         void Execute();
 
     private:
