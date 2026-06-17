@@ -5,10 +5,10 @@
 #include <singleton/st_render.h>
 
 void init_global() {
-  SINGLETON_cache *G_cache = new SINGLETON_cache();
-  SINGLETON_render *G_render = new SINGLETON_render();
-
-  // G_render->set_select()
+  G_cache = new SINGLETON_cache();
+  G_render = new SINGLETON_render();
+  
+  G_render->change_screen(DtoRenderType::WORLD, "rizwarmc.json");
 }
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
 
     ClearBackground(BLUE);
 
-    G_render->Execute();
+    G_render->Execute(); 
 
     EndDrawing();
   }

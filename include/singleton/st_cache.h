@@ -9,15 +9,19 @@ class Gui;
 
 class SINGLETON_cache {
     public:
-        std::vector<std::pair<DtoTextureType, Texture2D*>> get_object();
-        Texture2D* get_by_texture_type_object(DtoTextureType search);
-        void set_object(std::vector<std::pair<DtoTextureType, Texture2D*>> value);
+        SINGLETON_cache();
+
+        std::vector<std::pair<DtoTextureType, Texture>> get_object();
+        Texture get_by_texture_type_object(DtoTextureType search);
+        void set_object(std::vector<std::pair<DtoTextureType, Texture>> value);
 
         std::vector<Body*> get_world_object_by_id(std::string id);
         std::vector<Gui*> get_gui_object_by_id(std::string id);
 
+        void init_texture();
+
     private:
-        std::vector<std::pair<DtoTextureType, Texture2D*>> object;
+        std::vector<std::pair<DtoTextureType, Texture>> object;
 };
 
 extern SINGLETON_cache* G_cache;

@@ -32,10 +32,11 @@ void Body::set_collider(DtoCollider* value){
     this->collider = value;
 }
 
-void Body::Execute(const std::vector<Body*>& objects){
-    this->Display();
-}
-
 void Body::Display(){
     this->get_mesh()->Execute();
+}
+
+void Body::Execute(const std::vector<Body*>& objects){
+    this->Display();
+    std::cout << "chase me !" << std::endl;
 }

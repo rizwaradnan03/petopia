@@ -20,126 +20,88 @@ namespace file {
         std::string parentKey = "";
         for(int i = 0;i < sz;i++){
             if(strizedBuf[i] == '\"'){
-                int cp;
-                for(int j = i + 1;j < sz;j++){
-                    if(strizedBuf[j] == '\"'){
-                        cp = j + 1;
-                        break;
+                if(parentKey.size() == 0){
+                    int j = i + 1;
+                    while(strizedBuf[j] != '\"'){
+                        parentKey += strizedBuf[j];
+                        j++;
                     }
 
-                    parentKey += strizedBuf[j];
+                    i = j;
+
                 }
+            }else{
+                if(strizedBuf[i] == ':' && parentKey.size() > 0 && (strizedBuf[i + 1] == '\"' || strizedBuf[i + 2] == '\"' || strizedBuf[i + 3] == '\"')){
+                    std::string key = "";
+                    std::string val = "";
 
-                i = cp;
+                    int kQ = 0;
+                    int vQ = 0;
 
-                std::string key = "";
-                std::string val = "";
-                bool isValTurn = false;
-                for(int j = i;j < sz;j++){
-                    bool isDo = false;
+                    
+                    int kP = i;
+                    while(kQ < 2){
+                        if(strizedBuf[kP] == '\"'){
+                            kQ++;
+                        }
+                        
+                        if(kQ == 1 && strizedBuf[kP] != '\"'){
+                            key += strizedBuf[kP];
+                        }
+                        
+                        kP--;
+                    }
 
-                    if(strizedBuf[j] == '\"'){
-                        for(int k = j + 1;k < sz;k++){
-                            if(strizedBuf[k] == '\"'){
-                                i = k;
-                                break;
-                            }
-
-                            val += strizedBuf[k];
-                            
-                            ret.push_back(std::make_pair(parentKey, val));
-                            parentKey = "";
-                            key = "";
-                            val = "";
+                    int vP = i;
+                    while(vQ < 2){
+                        if(strizedBuf[vP] == '\"'){
+                            vQ++;
                         }
 
-                        isDo = true;
-                    }else if(strizedBuf[j] == '{'){
-                        for(int k = j + 1;k < sz;k++){
-                            if(strizedBuf[k] != ' ' && strizedBuf[k] != ':' && strizedBuf[k] != '\"' && strizedBuf[k] != ',' && strizedBuf[k] != '}'){
-                                if(isValTurn == false){
-                                    key += strizedBuf[k];
-                                }else{
-                                    val += strizedBuf[k];
-                                }
-                            }else{
-                                if(strizedBuf[k] == '\"'){
-                                    if(isValTurn == true){
-                                        std::string namified = parentKey + "_" + key;
-                                        ret.push_back(std::make_pair(namified, val));
+                        if(vQ == 1 && strizedBuf[vP] != '\"'){
+                            val += strizedBuf[vP];
+                        }
 
-                                        key = "";
-                                        val = "";
-                                        isValTurn = false;
-                                    }
+                        vP++;
+                    }
+                    
+                    i = vP;
 
-                                    if(isValTurn == false){
-                                        isValTurn = true;
-                                    }
-                                }else if(strizedBuf[k] == '}'){
-                                    isDo = true;
+                    for(int j = 0;j < key.size() / 2;j++){
+                        char tmp = key[key.size() - (1 + j)];
+                        key[key.size() - (1 + j)] = key[j];
+                        key[j] = tmp;
+                    }
+
+                    if(key == parentKey){
+                        key = "";
+                    }
+                    
+                    std::string nmfied = parentKey + "_" + key;
+
+                    uint8_t nm = 1;
+                    for(int j = 0;j < ret.size();j++){
+                        if(ret[j].first[0] == nmfied[0]){
+                            for(int k = 0;k < nmfied.size();k++){
+                                if(nmfied[k] != ret[j].first[k]){
                                     break;
                                 }
-                            }
-                        }
 
-                    }else if(strizedBuf[j] == '['){
-                        for(int k = j + 1;k < sz;k++){
-                            if(strizedBuf[k] != ' ' && strizedBuf[k] != ':' && strizedBuf[k] != '\"' && strizedBuf[k] != ',' && strizedBuf[k] != '{' && strizedBuf[k] != '}'){
-                                if(isValTurn = false){
-                                    key += strizedBuf[k];
-                                }else{
-                                    val += strizedBuf[k];
-                                }
-                            }else{
-                                if(strizedBuf[k] == '\"'){
-                                    if(isValTurn == true){
-                                        uint8_t indexOfNaming = 1;
-
-                                        std::string namified = parentKey + "_" + key;
-
-                                        for(int g = 0;g < ret.size();g++){
-                                            for(int b = 0;b < namified.size();b++){
-                                                if(namified[b] != ret[g].first[b]){
-                                                    break;
-                                                }
-
-                                                if(b == namified.size() - 1){
-                                                    indexOfNaming++;
-                                                }
-                                            }
-                                        }
-
-                                        namified += "_" + indexOfNaming;
-
-                                        ret.push_back(std::make_pair(namified, val));
-
-                                        key = "";
-                                        val = "";
-                                        isValTurn = false;
-                                    }
-
-                                    if(isValTurn == false){
-                                        isValTurn = true;
-                                    }
-                                }else if(strizedBuf[k] == ']'){
-                                    isDo = true;
-                                    break;
+                                if(k == nmfied.size() - 1){
+                                    nm++;
                                 }
                             }
                         }
                     }
 
-                    if(isDo = true){
-                        i = j;
-                        break;
-                    }
+                    nmfied += ((key.size() > 0 ? "_" : "") + std::to_string(nm));
+                    ret.push_back(std::make_pair(nmfied, val));
+                }else if(strizedBuf[i] == ']'){
+                    parentKey = "";
                 }
-
-                parentKey = "";
             }
         }
-        
+
         for(int i = 0;i < ret.size();i++){
             bool isFloat = false;
         
@@ -148,7 +110,8 @@ namespace file {
             try{
                 bool isNum = true;
                 for(int j = 0;j < ctVal.size();j++){
-                    if(ctVal[j] == '.' && (ctVal[j - 1] - '0')){
+                    if(ctVal[j] == '.'){
+                        int nmbr = ctVal[j] - '0';
                         isNum = false;
                     }
                 }

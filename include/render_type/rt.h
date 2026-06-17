@@ -5,7 +5,7 @@ class RenderType {
     public:
         RenderType();
 
-        void Execute();        
+        virtual void Execute();        
 };
 
 #endif

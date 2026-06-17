@@ -9,6 +9,4 @@ enum DtoTextureType {
     BLOCK_STONE
 };
 
-extern const std::unordered_map<std::string, DtoTextureType> stringToEnum;
-
 #endif

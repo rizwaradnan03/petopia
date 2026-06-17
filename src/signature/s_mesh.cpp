@@ -12,11 +12,11 @@ void SIGNATURE_mesh::set_value(MeshInit value){
     this->value = value;
 }
 
-Texture2D SIGNATURE_mesh::get_texture(){
+Texture SIGNATURE_mesh::get_texture(){
     return this->texture;
 }
 
-void SIGNATURE_mesh::set_texture(Texture2D value){
+void SIGNATURE_mesh::set_texture(Texture value){
     this->texture = value;
 }
 
@@ -40,7 +40,10 @@ void SIGNATURE_mesh::Execute(){
     MeshInit m = this->get_value();
 
     Rectangle source = {0, 0, m.w, m.h};
-    Vector2 position = {m.x, m.y};
+    Rectangle dest = {m.x, m.y, m.w, m.h};
 
-    DrawTextureRec(m.texture, source, position, WHITE);
+    Vector2 origin = {m.x, m.y};
+
+    // DrawTextureRec(m.texture, source, position, WHITE);
+    DrawTexturePro(m.texture, source, dest, origin, 0.0f, WHITE);
 }

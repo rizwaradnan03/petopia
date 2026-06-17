@@ -10,8 +10,8 @@ class SIGNATURE_mesh {
         MeshInit& get_value();
         void set_value(MeshInit value);
 
-        Texture2D get_texture();
-        void set_texture(Texture2D value);
+        Texture get_texture();
+        void set_texture(Texture value);
 
         float get_right_position();
         float get_left_position();
@@ -22,7 +22,7 @@ class SIGNATURE_mesh {
 
     private:
         MeshInit value;
-        Texture2D texture;
+        Texture texture;
 };
 
 #endif

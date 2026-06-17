@@ -23,5 +23,5 @@ void SINGLETON_render::change_screen(DtoRenderType worldType, std::string screen
 }
 
 void SINGLETON_render::Execute(){
-    this->get_select()->Execute();
+    this->get_select()->Execute(); // run the selected
 }

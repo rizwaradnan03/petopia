@@ -3,6 +3,8 @@
 FILES="$(find ./src -type f -name '*.cpp') $(find ./cmd -type f -name '*.cpp')"
 
 g++ $FILES \
+-g \
+-O0 \
 -o game \
 -Isrc \
 -Iinclude \
