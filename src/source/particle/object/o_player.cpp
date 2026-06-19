@@ -48,8 +48,20 @@ void OBJECT_player::set_collider(DtoCollider* value){
     this->collider = value;
 }
 
-void OBJECT_player::physic(const std::vector<Body*>& objects){
+std::vector<GUI_container*> OBJECT_player::get_gui_containers(){
+    return this->gui_containers;
+}
 
+void OBJECT_player::set_gui_containers(std::vector<GUI_container*> value){
+    this->gui_containers = value;
+}
+
+void OBJECT_player::set_push_gui_containers(GUI_container* value){
+    this->gui_containers.push_back(value);
+}
+
+void OBJECT_player::physic(const std::vector<Body*>& objects){
+    this->object_collide(objects);
 }
 
 void OBJECT_player::object_collide(const std::vector<Body*>& objects){
@@ -96,6 +108,11 @@ void OBJECT_player::object_collide(const std::vector<Body*>& objects){
 
 void OBJECT_player::Display(){
     this->get_mesh()->Execute();
+
+    std::vector<GUI_container*> gc = this->get_gui_containers();
+    for(int i = 0;i < gc.size();i++){
+        gc[i]->Execute(this->get_mesh());
+    }
 }
 
 void OBJECT_player::Execute(const std::vector<Body*>& objects){

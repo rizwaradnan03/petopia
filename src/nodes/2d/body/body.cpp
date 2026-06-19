@@ -38,5 +38,4 @@ void Body::Display(){
 
 void Body::Execute(const std::vector<Body*>& objects){
     this->Display();
-    std::cout << "chase me !" << std::endl;
 }

@@ -39,10 +39,10 @@ float SIGNATURE_mesh::get_bottom_position(){
 void SIGNATURE_mesh::Execute(){
     MeshInit m = this->get_value();
 
-    Rectangle source = {0, 0, m.w, m.h};
+    Rectangle source = {0.0f, 0.0f, m.w, m.h};
     Rectangle dest = {m.x, m.y, m.w, m.h};
 
-    Vector2 origin = {m.x, m.y};
+    Vector2 origin = {0, 0};
 
     // DrawTextureRec(m.texture, source, position, WHITE);
     DrawTexturePro(m.texture, source, dest, origin, 0.0f, WHITE);

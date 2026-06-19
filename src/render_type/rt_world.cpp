@@ -135,10 +135,6 @@ void RENDER_TYPE_world::Execute(){
     std::vector<Body*> objs = this->get_objects();
 
     for(int i = 0;i < objs.size();i++){
-        if(i == 2){
-            std::cout << objs[i]->get_mesh()->get_value().x << std::endl;
-        }
-
         objs[i]->Execute(objs);
     }
 }

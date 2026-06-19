@@ -1,37 +1,33 @@
-#include <nodes/2d/gui/gui.h>
+#include <nodes/2d/gui/gui_point.h>
 
-Gui::Gui(MeshInit meshInit, DtoPoleset* poleSet){
+GUI_point::GUI_point(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);
 }
 
-SIGNATURE_mesh* Gui::get_mesh(){
+SIGNATURE_mesh* GUI_point::get_mesh(){
     return this->mesh;
 }
 
-void Gui::set_mesh(SIGNATURE_mesh* value){
+void GUI_point::set_mesh(SIGNATURE_mesh* value){
     this->mesh = value;
 }
 
-DtoPoleset* Gui::get_poleset(){
+DtoPoleset* GUI_point::get_poleset(){
     return this->poleset;
 }
 
-void Gui::set_poleset(DtoPoleset* value){
+void GUI_point::set_poleset(DtoPoleset* value){
     this->poleset = value;
 }
 
-void Gui::Display(){
+void GUI_point::Display(){
     this->get_mesh()->Execute();
 }
 
-void Gui::UpdateDrill(SIGNATURE_mesh* meshDrill){
-    if(meshDrill == nullptr){
-        return; // static stuff
-    }
-
+void GUI_point::UpdateDrill(SIGNATURE_mesh* meshDrill){
     float xDr = meshDrill->get_value().x;
     float yDr = meshDrill->get_value().y;
 
@@ -42,7 +38,12 @@ void Gui::UpdateDrill(SIGNATURE_mesh* meshDrill){
     this->get_mesh()->get_value().y = curY + this->get_poleset()->y;
 }
 
-void Gui::Execute(SIGNATURE_mesh* meshDrill){
+void GUI_point::point_action(){
+    // proc
+}
+
+void GUI_point::Execute(SIGNATURE_mesh* meshDrill){
     this->UpdateDrill(meshDrill);
+    this->point_action();
     this->Display();
 }
