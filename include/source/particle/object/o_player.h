@@ -2,7 +2,12 @@
 #define OBJECT_PLAYER_H
 
 #include <config/c_pch.h>
+#include <namespace/n_system.h>
 #include <namespace/n_input.h>
+#include <namespace/n_system.h>
+#include <signature/s_camera.h>
+#include <signature/s_mesh.h>
+#include <signature/s_movement.h>
 #include <nodes/2d/body/body_dynamic.h>
 #include <nodes/2d/gui/gui_container.h>
 
@@ -12,6 +17,9 @@ class OBJECT_player: public BODY_dynamic {
 
         std::string get_id() override;
         void set_id(std::string value) override;
+
+        SIGNATURE_camera* get_camera();
+        void set_camera(SIGNATURE_camera* value);
 
         SIGNATURE_mesh* get_mesh() override;
         void set_mesh(SIGNATURE_mesh* value) override;
@@ -35,6 +43,7 @@ class OBJECT_player: public BODY_dynamic {
     private:
         std::string id;
 
+        SIGNATURE_camera* camera;
         SIGNATURE_mesh* mesh;
         SIGNATURE_movement* movement;
 

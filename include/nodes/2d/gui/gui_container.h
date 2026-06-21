@@ -9,7 +9,8 @@
 class GUI_container: public Gui {
     public:
         GUI_container(MeshInit meshInit, DtoPoleset* poleSet);
-        
+        ~GUI_container();
+
         virtual SIGNATURE_mesh* get_mesh();
         virtual void set_mesh(SIGNATURE_mesh* value);
 

@@ -1,10 +1,19 @@
 #include <nodes/2d/gui/gui_container.h>
 
-GUI_container::GUI_container(MeshInit meshInit, DtoPoleset* poleSet){
+GUI_container::GUI_container(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);
+}
+
+GUI_container::~GUI_container(){
+    delete this->get_mesh();
+
+    std::vector<Gui*> nd = this->get_nodes();
+    for(int i = 0;i < nd.size();i++){
+        delete nd[i];
+    }
 }
 
 SIGNATURE_mesh* GUI_container::get_mesh(){
@@ -21,6 +30,18 @@ DtoPoleset* GUI_container::get_poleset(){
 
 void GUI_container::set_poleset(DtoPoleset* value){
     this->poleset = value;
+}
+
+std::vector<Gui*> GUI_container::get_nodes(){
+    return this->nodes;
+}
+
+void GUI_container::set_nodes(std::vector<Gui*> value){
+    this->nodes = value;
+}
+
+void GUI_container::set_push_nodes(Gui* value){
+    this->nodes.push_back(value);
 }
 
 void GUI_container::Display(){

@@ -3,11 +3,13 @@
 #include <render_type/rt_world.h>
 #include <singleton/st_cache.h>
 #include <singleton/st_render.h>
+#include <singleton/st_system.h>
 
 void init_global() {
   G_cache = new SINGLETON_cache();
   G_render = new SINGLETON_render();
-  
+  G_system = new SINGLETON_system();
+
   G_render->change_screen(DtoRenderType::WORLD, "rizwarmc.json");
 }
 

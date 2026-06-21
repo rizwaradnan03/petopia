@@ -13,6 +13,17 @@ OBJECT_player::OBJECT_player(MeshInit meshInit, DtoCollider* collider): BODY_dyn
 
     this->set_collider(collider);
 
+    std::pair<int, int> hRes = sys::get_half_resolution();
+
+    Camera2D cam = {0};
+    cam.target = (Vector2){iMesh->get_value().x, iMesh->get_value().y};
+    cam.offset = (Vector2){static_cast<float>(hRes.first), static_cast<float>(hRes.second)};
+    cam.rotation = 0.0f;
+    cam.zoom = 1.0f;
+
+    SIGNATURE_camera* iCam = new SIGNATURE_camera(cam); 
+    this->set_camera(iCam);
+
     G_object_player = this;
 }
 
@@ -22,6 +33,14 @@ std::string OBJECT_player::get_id(){
 
 void OBJECT_player::set_id(std::string value){
     this->id = value;
+}
+
+SIGNATURE_camera* OBJECT_player::get_camera(){
+    return this->camera;
+}
+
+void OBJECT_player::set_camera(SIGNATURE_camera* value){
+    this->camera = value;
 }
 
 SIGNATURE_mesh* OBJECT_player::get_mesh(){
@@ -113,10 +132,15 @@ void OBJECT_player::Display(){
     for(int i = 0;i < gc.size();i++){
         gc[i]->Execute(this->get_mesh());
     }
+
+    this->get_camera()->Execute(*this->get_mesh());
 }
 
 void OBJECT_player::Execute(const std::vector<Body*>& objects){
     this->physic(objects);
     this->get_movement()->Execute(this->get_mesh());
     this->Display();
+
+    std::pair<int, int> res = sys::get_screen_resolution();
+    std::cout << "X VALUE : " << res.first << std::endl;
 }

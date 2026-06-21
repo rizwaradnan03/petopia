@@ -2,6 +2,7 @@
 #define CONFIG_PCH_H
 
 #include <raylib.h>
+#include <pqxx/pqxx>
 #include <vector>
 #include <utility>
 #include <string>

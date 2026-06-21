@@ -9,7 +9,9 @@ g++ $FILES \
 -Isrc \
 -Iinclude \
 -Ilib/include \
--lraylib
+-lraylib \
+-lpqxx \
+-lpq
 
 if [ $? -ne 0 ]; then
     echo "compile error"

@@ -1,4 +1,5 @@
 #include <namespace/n_input.h>
+#include <source/particle/object/o_player.h>
 
 namespace input {
     std::string* mouse_just_click(){
@@ -20,6 +21,8 @@ namespace input {
     }
 
     std::pair<float, float> mouse_position_player_as_pole(){
+        SIGNATURE_mesh* plyMesh = G_object_player->get_mesh(); // NOT IMPLEMENTED SO FAR
+
         return std::make_pair(0.0,0.0);
     }
 };

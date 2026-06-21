@@ -1,60 +1,68 @@
 {
     "block": [
         {
-            "x": "0.0",
-            "y": "0.0",
+            "x": "120.0",
+            "y": "300.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "30.0",
-            "y": "0.0",
+            "x": "150.0",
+            "y": "300.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "60.0",
-            "y": "0.0",
+            "x": "180.0",
+            "y": "300.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "90.0",
-            "y": "0.0",
+            "x": "210.0",
+            "y": "300.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "0.0",
-            "y": "30.0",
+            "x": "120.0",
+            "y": "330.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "30.0",
-            "y": "30.0",
+            "x": "150.0",
+            "y": "330.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "60.0",
-            "y": "30.0",
+            "x": "180.0",
+            "y": "330.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         },
         {
-            "x": "90.0",
-            "y": "30.0",
+            "x": "210.0",
+            "y": "330.0",
             "w": "30.0",
             "h": "30.0",
-            "texture": "BLOCK_DIRT"
+            "texture": "BLOCK_DIRT",
+            "node": "body_static"
         }
     ]
 }

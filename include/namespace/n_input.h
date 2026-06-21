@@ -3,6 +3,8 @@
 
 #include <config/c_pch.h>
 
+class OBJECT_player;
+
 namespace input {
     std::string* mouse_just_click();
 

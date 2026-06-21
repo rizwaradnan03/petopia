@@ -1,5 +1,5 @@
-#ifndef SIGNATURE_MESH
-#define SIGNATURE_MESH
+#ifndef SIGNATURE_MESH_H
+#define SIGNATURE_MESH_H
 
 #include <dto/dto_signature_mesh.h>
 
