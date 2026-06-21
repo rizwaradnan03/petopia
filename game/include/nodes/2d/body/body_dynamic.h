@@ -11,6 +11,7 @@
 class BODY_dynamic: public Body {
     public:
         BODY_dynamic(MeshInit meshInit, DtoCollider* collider);
+        ~BODY_dynamic();
 
         virtual std::string& get_id() override;
         virtual void set_id(std::string value) override;

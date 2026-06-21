@@ -123,6 +123,13 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
     this->set_objects(obj);
 }
 
+RENDER_TYPE_world::~RENDER_TYPE_world(){
+    std::vector<Body*> obj = this->get_objects();
+    for(int i = 0;i < obj.size();i++){
+        delete obj[i];
+    }
+}
+
 std::vector<Body*> RENDER_TYPE_world::get_objects(){
     return this->objects;
 }

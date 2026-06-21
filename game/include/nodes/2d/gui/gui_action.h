@@ -13,7 +13,8 @@ class GUI_action: public GUI_click, public GUI_point {
         using GUI_point::point_action;
         
         GUI_action(MeshInit meshInit, DtoPoleset* poleSet);
-        
+        ~GUI_action();
+
         std::string& get_id();
         void set_id(std::string value);
 

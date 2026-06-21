@@ -8,6 +8,10 @@ GUI_point::GUI_point(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, pole
     this->set_poleset(poleSet);
 }
 
+GUI_point::~GUI_point(){
+    delete this->get_mesh();
+}
+
 std::string& GUI_point::get_id(){
     return this->id;
 }

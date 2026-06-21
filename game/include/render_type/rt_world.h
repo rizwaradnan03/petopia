@@ -17,6 +17,7 @@
 class RENDER_TYPE_world: public RenderType {
     public:
         RENDER_TYPE_world(std::string worldName);
+        ~RENDER_TYPE_world();
 
         std::vector<Body*> get_objects();
         void set_objects(std::vector<Body*> value);

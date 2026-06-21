@@ -11,6 +11,7 @@
 class BODY_static: public Body {
     public:
         BODY_static(MeshInit meshInit, DtoCollider* collider);
+        ~BODY_static();
 
         virtual std::string& get_id() override;
         virtual void set_id(std::string value) override;

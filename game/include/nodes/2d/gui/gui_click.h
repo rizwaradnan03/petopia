@@ -9,7 +9,8 @@
 class GUI_click: public Gui {
     public:
         GUI_click(MeshInit meshInit, DtoPoleset* poleSet);
-        
+        ~GUI_click();
+
         std::string& get_id();
         void set_id(std::string value);
 

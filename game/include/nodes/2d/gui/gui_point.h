@@ -8,7 +8,8 @@
 class GUI_point: public Gui {
     public:
         GUI_point(MeshInit meshInit, DtoPoleset* poleSet);
-        
+        ~GUI_point();
+
         std::string& get_id();
         void set_id(std::string id);
 

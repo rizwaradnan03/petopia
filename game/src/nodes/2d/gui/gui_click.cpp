@@ -7,6 +7,10 @@ GUI_click::GUI_click(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, pole
     this->set_poleset(poleSet);
 }
 
+GUI_click::~GUI_click(){
+    delete this->get_mesh();
+}
+
 std::string& GUI_click::get_id(){
     return this->id;
 }

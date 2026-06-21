@@ -10,6 +10,7 @@
 class Body {
     public:
         Body(MeshInit meshInit, DtoCollider* collider);
+        ~Body();
 
         virtual std::string& get_id();
         virtual void set_id(std::string value);

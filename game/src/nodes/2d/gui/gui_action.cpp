@@ -8,6 +8,10 @@ GUI_action::GUI_action(MeshInit meshInit, DtoPoleset* poleSet): GUI_click(meshIn
     this->set_poleset(poleSet);
 }
 
+GUI_action::~GUI_action(){
+    delete this->get_mesh();
+}
+
 std::string& GUI_action::get_id(){
     return this->id;
 }

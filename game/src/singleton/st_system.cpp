@@ -15,6 +15,28 @@ void SINGLETON_system::set_curl(CURL* value){
     this->curl = value;
 }
 
+std::string* SINGLETON_system::get_access_token(){
+    return this->access_token;
+}
+
+void SINGLETON_system::set_access_token(std::string* value){
+    this->access_token = value;
+}
+
+std::vector<std::pair<std::string, VariantType>> SINGLETON_system::get_attribute(){
+    return this->attribute;
+}
+
+void SINGLETON_system::set_attribute(std::vector<std::pair<std::string, VariantType>> value){
+    this->attribute = value;
+}
+
+std::string* auth_login(DtoCurl curlDto){
+    std::vector<std::pair<std::string, VariantType>> val;
+
+    return nullptr;
+}
+
 std::vector<std::pair<std::string, VariantType>> SINGLETON_system::get_fetch(DtoCurl curlDto){
     try{
         CURLcode res;        

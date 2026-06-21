@@ -8,7 +8,8 @@
 class Gui {
     public:
         Gui(MeshInit meshInit, DtoPoleset* poleSet);
-        
+        ~Gui();
+
         std::string& get_id();
         void set_id(std::string value);
 

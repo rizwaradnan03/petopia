@@ -9,6 +9,10 @@ BODY_static::BODY_static(MeshInit meshInit, DtoCollider* collider): Body(meshIni
     this->set_collider(collider);
 }
 
+BODY_static::~BODY_static(){
+    delete this->get_mesh();
+}
+
 std::string& BODY_static::get_id(){
     return this->id;
 }

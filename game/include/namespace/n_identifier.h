@@ -5,6 +5,7 @@
 
 namespace identifier {
     std::string generate_id(const std::string& text);
+    std::string get_node_type_from_id(std::string& id);
 };
 
 #endif
