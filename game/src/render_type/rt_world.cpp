@@ -2,7 +2,7 @@
 
 RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
     std::string strized = "render/world/" + worldName;
-    std::vector<std::pair<std::string, std::variant<int, float, std::string>>> datas = file::read_whole_file_data(strized, new std::string("block"));
+    std::vector<std::pair<std::string, VariantType>> datas = file::read_whole_file_data(strized, new std::string("block"));
 
     std::vector<Body*> obj;
     

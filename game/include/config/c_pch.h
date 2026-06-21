@@ -2,7 +2,8 @@
 #define CONFIG_PCH_H
 
 #include <raylib.h>
-#include <pqxx/pqxx>
+// #include <pqxx/pqxx>
+#include <curl/curl.h>
 #include <vector>
 #include <utility>
 #include <string>

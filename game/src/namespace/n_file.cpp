@@ -1,9 +1,7 @@
 #include <namespace/n_file.h>
 
 namespace file {
-    std::vector<std::pair<std::string, std::variant<int, float, std::string>>> read_whole_file_data(std::string path, std::string* search){
-        std::vector<std::pair<std::string, std::variant<int, float, std::string>>> ret;
-
+    std::vector<std::pair<std::string, VariantType>> read_whole_file_data(std::string path, std::string* search){
         std::string fPath = "storage/" + path;
         std::ifstream file(fPath);
 
@@ -15,15 +13,21 @@ namespace file {
         buffer << file.rdbuf();
 
         std::string strizedBuf = buffer.str();
-        uint16_t sz = strizedBuf.size();
+        return read_data(strizedBuf, search);
+    }
 
+    std::vector<std::pair<std::string, VariantType>> read_data(std::string& dataString, std::string* search){
+        std::vector<std::pair<std::string, VariantType>> ret;
+        
+        uint16_t sz = dataString.size();
+        
         std::string parentKey = "";
         for(int i = 0;i < sz;i++){
-            if(strizedBuf[i] == '\"'){
+            if(dataString[i] == '\"'){
                 if(parentKey.size() == 0){
                     int j = i + 1;
-                    while(strizedBuf[j] != '\"'){
-                        parentKey += strizedBuf[j];
+                    while(dataString[j] != '\"'){
+                        parentKey += dataString[j];
                         j++;
                     }
 
@@ -31,7 +35,7 @@ namespace file {
 
                 }
             }else{
-                if(strizedBuf[i] == ':' && parentKey.size() > 0 && (strizedBuf[i + 1] == '\"' || strizedBuf[i + 2] == '\"' || strizedBuf[i + 3] == '\"')){
+                if(dataString[i] == ':' && parentKey.size() > 0 && (dataString[i + 1] == '\"' || dataString[i + 2] == '\"' || dataString[i + 3] == '\"')){
                     std::string key = "";
                     std::string val = "";
 
@@ -41,12 +45,12 @@ namespace file {
                     
                     int kP = i;
                     while(kQ < 2){
-                        if(strizedBuf[kP] == '\"'){
+                        if(dataString[kP] == '\"'){
                             kQ++;
                         }
                         
-                        if(kQ == 1 && strizedBuf[kP] != '\"'){
-                            key += strizedBuf[kP];
+                        if(kQ == 1 && dataString[kP] != '\"'){
+                            key += dataString[kP];
                         }
                         
                         kP--;
@@ -54,12 +58,12 @@ namespace file {
 
                     int vP = i;
                     while(vQ < 2){
-                        if(strizedBuf[vP] == '\"'){
+                        if(dataString[vP] == '\"'){
                             vQ++;
                         }
 
-                        if(vQ == 1 && strizedBuf[vP] != '\"'){
-                            val += strizedBuf[vP];
+                        if(vQ == 1 && dataString[vP] != '\"'){
+                            val += dataString[vP];
                         }
 
                         vP++;
@@ -96,7 +100,7 @@ namespace file {
 
                     nmfied += ((key.size() > 0 ? "_" : "") + std::to_string(nm));
                     ret.push_back(std::make_pair(nmfied, val));
-                }else if(strizedBuf[i] == ']'){
+                }else if(dataString[i] == ']'){
                     parentKey = "";
                 }
             }
