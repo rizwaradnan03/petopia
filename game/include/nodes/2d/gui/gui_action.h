@@ -1,14 +1,18 @@
-#ifndef GUI_GUI_CLICK_H
-#define GUI_GUI_CLICK_H
+#ifndef GUI_GUI_ACTION_H
+#define GUI_GUI_ACTION_H
 
-#include <config/c_pch.h>
-#include <namespace/n_input.h>
+#include <dto/dto_signature_mesh.h>
+#include <dto/dto_poleset.h>
 #include <namespace/n_identifier.h>
-#include <nodes/2d/gui/gui.h>
+#include <nodes/2d/gui/gui_click.h>
+#include <nodes/2d/gui/gui_point.h>
 
-class GUI_click: public Gui {
+class GUI_action: public GUI_click, public GUI_point {
     public:
-        GUI_click(MeshInit meshInit, DtoPoleset* poleSet);
+        using GUI_click::hit_action;
+        using GUI_point::point_action;
+        
+        GUI_action(MeshInit meshInit, DtoPoleset* poleSet);
         
         std::string& get_id();
         void set_id(std::string value);
@@ -19,7 +23,9 @@ class GUI_click: public Gui {
         virtual DtoPoleset* get_poleset() override;
         virtual void set_poleset(DtoPoleset* value) override;
 
-        virtual void hit_action();
+        virtual void hit_action() override;
+        virtual void point_action() override;
+        virtual void action();
 
         virtual void Display() override;
         virtual void UpdateDrill(SIGNATURE_mesh* meshDrill) override;

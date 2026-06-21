@@ -12,7 +12,7 @@ BODY_dynamic::BODY_dynamic(MeshInit meshInit, DtoCollider* collider): Body(meshI
     this->set_collider(collider);
 }
 
-std::string BODY_dynamic::get_id(){
+std::string& BODY_dynamic::get_id(){
     return this->id;
 }
 

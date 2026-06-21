@@ -1,41 +1,52 @@
-#include <nodes/2d/gui/gui_click.h>
+#include <source/particle/gui/g_item.h>
 
-GUI_click::GUI_click(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
+GUI_item::GUI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto): GUI_action(meshInit, poleSet){
+    this->set_id(identifier::generate_id("gui_item"));
+    
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);
+    this->set_item_amount(itemAmountDto);
 }
 
-std::string& GUI_click::get_id(){
+std::string& GUI_item::get_id(){
     return this->id;
 }
 
-void GUI_click::set_id(std::string value){
+void GUI_item::set_id(std::string value){
     this->id = value;
 }
 
-SIGNATURE_mesh* GUI_click::get_mesh(){
+SIGNATURE_mesh* GUI_item::get_mesh(){
     return this->mesh;
 }
 
-void GUI_click::set_mesh(SIGNATURE_mesh* value){
+void GUI_item::set_mesh(SIGNATURE_mesh* value){
     this->mesh = value;
 }
 
-DtoPoleset* GUI_click::get_poleset(){
+DtoPoleset* GUI_item::get_poleset(){
     return this->poleset;
 }
 
-void GUI_click::set_poleset(DtoPoleset* value){
+void GUI_item::set_poleset(DtoPoleset* value){
     this->poleset = value;
 }
 
-void GUI_click::Display(){
+DtoItemAmount& GUI_item::get_item_amount(){
+    return this->item_amount;
+}
+
+void GUI_item::set_item_amount(DtoItemAmount value){
+    this->item_amount = value;
+}
+
+void GUI_item::Display(){
     this->get_mesh()->Execute();
 }
 
-void GUI_click::UpdateDrill(SIGNATURE_mesh* meshDrill){
+void GUI_item::UpdateDrill(SIGNATURE_mesh* meshDrill){
     float xDr = meshDrill->get_value().x;
     float yDr = meshDrill->get_value().y;
 
@@ -46,7 +57,7 @@ void GUI_click::UpdateDrill(SIGNATURE_mesh* meshDrill){
     this->get_mesh()->get_value().y = curY + this->get_poleset()->y;
 }
 
-void GUI_click::hit_action(){
+void GUI_item::hit_action(){
     std::string* inp = input::mouse_just_click();
     if(inp == nullptr || *inp == "RIGHT"){
         return;
@@ -55,7 +66,7 @@ void GUI_click::hit_action(){
     // proc
 }
 
-void GUI_click::Execute(SIGNATURE_mesh* meshDrill){
+void GUI_item::Execute(SIGNATURE_mesh* meshDrill){
     this->UpdateDrill(meshDrill);
     this->hit_action();
     this->Display();

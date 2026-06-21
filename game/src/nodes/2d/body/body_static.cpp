@@ -9,7 +9,7 @@ BODY_static::BODY_static(MeshInit meshInit, DtoCollider* collider): Body(meshIni
     this->set_collider(collider);
 }
 
-std::string BODY_static::get_id(){
+std::string& BODY_static::get_id(){
     return this->id;
 }
 

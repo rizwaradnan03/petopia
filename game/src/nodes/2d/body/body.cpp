@@ -8,7 +8,7 @@ Body::Body(MeshInit meshInit, DtoCollider* collider){
     this->set_collider(collider);
 }
 
-std::string Body::get_id(){
+std::string& Body::get_id(){
     return this->id;
 }
 

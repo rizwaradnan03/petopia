@@ -5,6 +5,7 @@
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_poleset.h>
 #include <nodes/2d/gui/gui.h>
+#include <nodes/2d/gui/gui_action.h>
 
 class GUI_container: public Gui {
     public:
@@ -17,9 +18,9 @@ class GUI_container: public Gui {
         virtual DtoPoleset* get_poleset();
         virtual void set_poleset(DtoPoleset* value);
 
-        std::vector<Gui*> get_nodes();
-        void set_nodes(std::vector<Gui*> value);
-        void set_push_nodes(Gui* value);
+        std::vector<GUI_action*> get_nodes();
+        void set_nodes(std::vector<GUI_action*> value);
+        void set_push_nodes(GUI_action* value);
 
         virtual void Display();
         virtual void UpdateDrill(SIGNATURE_mesh* meshDrill);
@@ -29,7 +30,7 @@ class GUI_container: public Gui {
         SIGNATURE_mesh* mesh;
         DtoPoleset* poleset;
 
-        std::vector<Gui*> nodes;
+        std::vector<GUI_action*> nodes;
 };
 
 #endif

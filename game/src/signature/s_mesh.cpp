@@ -21,19 +21,19 @@ void SIGNATURE_mesh::set_texture(Texture value){
 }
 
 float SIGNATURE_mesh::get_right_position(){
-    return this->get_value().x + (this->get_value().w / 2);
+    return this->get_value().x + this->get_value().w;
 }
 
 float SIGNATURE_mesh::get_left_position(){
-    return this->get_value().x - (this->get_value().w / 2);
+    return this->get_value().x;
 }
 
 float SIGNATURE_mesh::get_top_position(){
-    return this->get_value().y + (this->get_value().h / 2);
+    return this->get_value().y;
 }
 
 float SIGNATURE_mesh::get_bottom_position(){
-    return this->get_value().y - (this->get_value().h / 2);
+    return this->get_value().y + this->get_value().h;
 }
 
 void SIGNATURE_mesh::Execute(){

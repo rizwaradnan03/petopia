@@ -27,7 +27,7 @@ OBJECT_player::OBJECT_player(MeshInit meshInit, DtoCollider* collider): BODY_dyn
     G_object_player = this;
 }
 
-std::string OBJECT_player::get_id(){
+std::string& OBJECT_player::get_id(){
     return this->id;
 }
 
@@ -77,6 +77,14 @@ void OBJECT_player::set_gui_containers(std::vector<GUI_container*> value){
 
 void OBJECT_player::set_push_gui_containers(GUI_container* value){
     this->gui_containers.push_back(value);
+}
+
+GUI_item* OBJECT_player::get_hold_item(){
+    return this->hold_item;
+}
+
+void OBJECT_player::set_hold_item(GUI_item* value){
+    this->hold_item = value;
 }
 
 void OBJECT_player::physic(const std::vector<Body*>& objects){

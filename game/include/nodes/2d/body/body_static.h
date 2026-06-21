@@ -12,7 +12,7 @@ class BODY_static: public Body {
     public:
         BODY_static(MeshInit meshInit, DtoCollider* collider);
 
-        virtual std::string get_id() override;
+        virtual std::string& get_id() override;
         virtual void set_id(std::string value) override;
 
         virtual SIGNATURE_mesh* get_mesh() override;

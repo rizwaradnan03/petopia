@@ -11,7 +11,7 @@ class Body {
     public:
         Body(MeshInit meshInit, DtoCollider* collider);
 
-        virtual std::string get_id();
+        virtual std::string& get_id();
         virtual void set_id(std::string value);
 
         virtual SIGNATURE_mesh* get_mesh();

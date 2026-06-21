@@ -10,7 +10,7 @@ GUI_container::GUI_container(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshIn
 GUI_container::~GUI_container(){
     delete this->get_mesh();
 
-    std::vector<Gui*> nd = this->get_nodes();
+    std::vector<GUI_action*> nd = this->get_nodes();
     for(int i = 0;i < nd.size();i++){
         delete nd[i];
     }
@@ -32,22 +32,22 @@ void GUI_container::set_poleset(DtoPoleset* value){
     this->poleset = value;
 }
 
-std::vector<Gui*> GUI_container::get_nodes(){
+std::vector<GUI_action*> GUI_container::get_nodes(){
     return this->nodes;
 }
 
-void GUI_container::set_nodes(std::vector<Gui*> value){
+void GUI_container::set_nodes(std::vector<GUI_action*> value){
     this->nodes = value;
 }
 
-void GUI_container::set_push_nodes(Gui* value){
+void GUI_container::set_push_nodes(GUI_action* value){
     this->nodes.push_back(value);
 }
 
 void GUI_container::Display(){
     this->get_mesh()->Execute();
 
-    std::vector<Gui*> nds = this->get_nodes();
+    std::vector<GUI_action*> nds = this->get_nodes();
     for(int i = 0;i < nds.size();i++){
         nds[i]->Execute(this->get_mesh());
     }

@@ -1,10 +1,19 @@
 #include <nodes/2d/gui/gui_point.h>
 
 GUI_point::GUI_point(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
+    this->set_id(identifier::generate_id("gui_point"));
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);
+}
+
+std::string& GUI_point::get_id(){
+    return this->id;
+}
+
+void GUI_point::set_id(std::string value){
+    this->id = value;
 }
 
 SIGNATURE_mesh* GUI_point::get_mesh(){

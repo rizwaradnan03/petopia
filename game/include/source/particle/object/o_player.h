@@ -10,12 +10,13 @@
 #include <signature/s_movement.h>
 #include <nodes/2d/body/body_dynamic.h>
 #include <nodes/2d/gui/gui_container.h>
+#include <source/particle/gui/g_item.h>
 
 class OBJECT_player: public BODY_dynamic {
     public:
         OBJECT_player(MeshInit meshInit, DtoCollider* collider);
 
-        std::string get_id() override;
+        std::string& get_id() override;
         void set_id(std::string value) override;
 
         SIGNATURE_camera* get_camera();
@@ -34,6 +35,9 @@ class OBJECT_player: public BODY_dynamic {
         void set_gui_containers(std::vector<GUI_container*> value);
         void set_push_gui_containers(GUI_container* value);
 
+        GUI_item* get_hold_item();
+        void set_hold_item(GUI_item* value);
+
         void physic(const std::vector<Body*>& objects);
         void object_collide(const std::vector<Body*>& objects);
 
@@ -50,6 +54,8 @@ class OBJECT_player: public BODY_dynamic {
         DtoCollider* collider;
 
         std::vector<GUI_container*> gui_containers;
+
+        GUI_item* hold_item;
 };
 
 extern OBJECT_player* G_object_player;
