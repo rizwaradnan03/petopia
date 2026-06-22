@@ -18,6 +18,14 @@ GUI_inventory::~GUI_inventory(){
     }
 }
 
+bool GUI_inventory::delete_checker(void* mem){
+    if(mem != nullptr){
+        return false;
+    }
+    
+    return true;
+}
+
 std::string& GUI_inventory::get_id(){
     return this->id;
 }
@@ -67,7 +75,16 @@ void GUI_inventory::Display(){
 
     std::vector<GUI_action*> nds = this->get_nodes();
     for(int i = 0;i < nds.size();i++){
-        nds[i]->Execute(this->get_mesh());
+        GUI_action* g = nds[i];
+
+        bool b = this->delete_checker(g);
+        if(b == true){
+            this->get_nodes().erase(this->get_nodes().begin() + i);
+            i--;
+            continue;
+        }
+
+        g->Execute(this->get_mesh());
     }
 }
 

@@ -34,12 +34,47 @@ void SINGLETON_cache::init_texture(){
         std::cout << "Gagal load image!" << std::endl;
     }
     
-    
     Texture blockDirtTx = LoadTextureFromImage(blockDirtImg);
     UnloadImage(blockDirtImg);
     
     DtoTextureType blockDirtTyp = DtoTextureType::BLOCK_DIRT;
     txt.push_back(std::make_pair(blockDirtTyp, blockDirtTx));
+
+
+    Image arroDefaultImg = LoadImage("./storage/sprites/CPC.png");
+    if (arroDefaultImg.data == nullptr) {
+        std::cout << "Gagal load image!" << std::endl;
+    }
+    
+    Texture arroDefaultTx = LoadTextureFromImage(arroDefaultImg);
+    UnloadImage(arroDefaultImg);
+    
+    DtoTextureType arroDefaultTyp = DtoTextureType::ARROW_DEFAULT;
+    txt.push_back(std::make_pair(arroDefaultTyp, arroDefaultTx));
+
+    
+    Image arroFlameImg = LoadImage("./storage/sprites/CPC.png");
+    if (arroFlameImg.data == nullptr) {
+        std::cout << "Gagal load image!" << std::endl;
+    }
+    
+    Texture arroFlameTx = LoadTextureFromImage(arroFlameImg);
+    UnloadImage(arroFlameImg);
+    
+    DtoTextureType arroFlameTyp = DtoTextureType::ARROW_FLAME;
+    txt.push_back(std::make_pair(arroFlameTyp, arroFlameTx));
+
+    
+    Image arrowPoisonImg = LoadImage("./storage/sprites/CPC.png");
+    if (arrowPoisonImg.data == nullptr) {
+        std::cout << "Gagal load image!" << std::endl;
+    }
+    
+    Texture arrowPoisonTx = LoadTextureFromImage(arrowPoisonImg);
+    UnloadImage(arrowPoisonImg);
+    
+    DtoTextureType arrowPoisonTyp = DtoTextureType::ARROW_POISON;
+    txt.push_back(std::make_pair(arrowPoisonTyp, arrowPoisonTx));
 
     this->set_object(txt);
 }

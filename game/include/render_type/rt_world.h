@@ -8,16 +8,18 @@
 #include <dto/dto_texture.h>
 #include <namespace/n_file.h>
 #include <namespace/n_entity.h>
+#include <signature/s_garbage.h>
 #include <singleton/st_cache.h>
-#include <render_type/rt.h>
 #include <nodes/2d/body/body.h>
 #include <nodes/2d/body/body_static.h>
 #include <nodes/2d/body/body_dynamic.h>
+#include <render_type/rt.h>
 
-class RENDER_TYPE_world: public RenderType {
+class RENDER_TYPE_world: public RenderType, public SIGNATURE_garbage {
     public:
         RENDER_TYPE_world(std::string worldName);
         ~RENDER_TYPE_world();
+        bool delete_checker(void* mem) override;
 
         std::vector<Body*> get_objects();
         void set_objects(std::vector<Body*> value);

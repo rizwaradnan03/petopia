@@ -17,4 +17,27 @@ namespace entity {
 
         return ret;
     }
+
+    std::vector<std::pair<DtoTextureType, std::vector<DtoEffectType>>> projectiles = {
+        std::make_pair(DtoTextureType::IRON_DEFAULT, std::vector<DtoEffectType>{DtoEffectType::DAMAGE}),
+        
+        std::make_pair(DtoTextureType::ARROW_DEFAULT, std::vector<DtoEffectType>{DtoEffectType::DAMAGE}),
+        std::make_pair(DtoTextureType::ARROW_FLAME, std::vector<DtoEffectType>{DtoEffectType::DAMAGE, DtoEffectType::BURN}),
+        std::make_pair(DtoTextureType::ARROW_POISON, std::vector<DtoEffectType>{DtoEffectType::DAMAGE}),
+        
+        std::make_pair(DtoTextureType::DART_DEFAULT, std::vector<DtoEffectType>{DtoEffectType::DAMAGE}),
+        std::make_pair(DtoTextureType::DART_SLEEP, std::vector<DtoEffectType>{DtoEffectType::SLEEP}),
+    };
+
+    // std::vector<VariantType> get_projectile_by_dto_texture_type(DtoTextureType& tex){
+    //     for(int i = 0;i < projectiles.size();i++){
+    //         DtoTextureType nm = std::get<DtoTextureType>(projectiles[0][1]);
+
+    //         if(nm == tex){
+    //             return projectiles[i];
+    //         }
+    //     }
+        
+    //     return {};
+    // }
 };

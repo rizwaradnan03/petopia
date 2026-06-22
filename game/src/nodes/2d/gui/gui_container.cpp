@@ -16,6 +16,14 @@ GUI_container::~GUI_container(){
     }
 }
 
+bool GUI_container::delete_checker(void* mem){
+    if(mem != nullptr){
+        return false;
+    }
+    
+    return true;
+}
+
 SIGNATURE_mesh* GUI_container::get_mesh(){
     return this->mesh;
 }
@@ -49,6 +57,15 @@ void GUI_container::Display(){
 
     std::vector<GUI_action*> nds = this->get_nodes();
     for(int i = 0;i < nds.size();i++){
+        GUI_action* g = nds[i];
+        
+        bool c = this->delete_checker(g);
+        if(c == true){
+            this->get_nodes().erase(this->get_nodes().begin() + i);
+            i--;
+            continue;
+        }
+
         nds[i]->Execute(this->get_mesh());
     }
 }

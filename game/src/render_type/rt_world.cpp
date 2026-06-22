@@ -130,6 +130,14 @@ RENDER_TYPE_world::~RENDER_TYPE_world(){
     }
 }
 
+bool RENDER_TYPE_world::delete_checker(void* mem){
+    if(mem != nullptr){
+        return false;
+    }
+
+    return true;
+}
+
 std::vector<Body*> RENDER_TYPE_world::get_objects(){
     return this->objects;
 }
@@ -142,6 +150,15 @@ void RENDER_TYPE_world::Execute(){
     std::vector<Body*> objs = this->get_objects();
 
     for(int i = 0;i < objs.size();i++){
-        objs[i]->Execute(objs);
+        Body* b = objs[i];
+        
+        bool c = this->delete_checker(b);
+        if(c == true){
+            this->get_objects().erase(this->get_objects().begin() + i);
+            i--;
+            continue;
+        }
+
+        b->Execute(objs);
     }
 }

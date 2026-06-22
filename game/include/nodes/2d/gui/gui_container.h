@@ -4,13 +4,16 @@
 #include <config/c_pch.h>
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_poleset.h>
+#include <signature/s_garbage.h>
 #include <nodes/2d/gui/gui.h>
 #include <nodes/2d/gui/gui_action.h>
 
-class GUI_container: public Gui {
+class GUI_container: public Gui, public SIGNATURE_garbage {
     public:
         GUI_container(MeshInit meshInit, DtoPoleset* poleSet);
         ~GUI_container();
+
+        bool delete_checker(void* mem) override;
 
         virtual SIGNATURE_mesh* get_mesh();
         virtual void set_mesh(SIGNATURE_mesh* value);
