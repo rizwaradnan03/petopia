@@ -10,6 +10,9 @@ class SIGNATURE_mesh {
         MeshInit& get_value();
         void set_value(MeshInit value);
 
+        MeshPole& get_pole();
+        void set_pole(MeshPole value);
+
         Texture get_texture();
         void set_texture(Texture value);
 
@@ -23,6 +26,8 @@ class SIGNATURE_mesh {
     private:
         MeshInit value;
         Texture texture;
+
+        MeshPole pole;
 };
 
 #endif

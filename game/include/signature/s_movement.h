@@ -5,7 +5,9 @@
 #include <signature/s_mesh.h>
 
 class SIGNATURE_movement {
-    public:    
+    public:
+        SIGNATURE_movement();
+
         std::string get_movement_state();
         void set_movement_state(std::string value);
 

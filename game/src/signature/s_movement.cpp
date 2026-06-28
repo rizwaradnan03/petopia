@@ -1,5 +1,9 @@
 #include <signature/s_movement.h>
 
+SIGNATURE_movement::SIGNATURE_movement(){
+    this->reset_avail();
+}
+
 void SIGNATURE_movement::Execute(SIGNATURE_mesh* mesh){
     float x = mesh->get_value().x;
 
@@ -23,22 +27,27 @@ void SIGNATURE_movement::Execute(SIGNATURE_mesh* mesh){
         }
     }
 
-    if(this->get_available_direction()[3] == true){
-        if(this->get_elapse_jump() != nullptr){
+    if(this->get_available_direction()[2] == true){
+        if(this->get_elapse_jump() != nullptr){ // move up
             std::chrono::time_point<std::chrono::high_resolution_clock> currentTime = std::chrono::high_resolution_clock::now();
             
             std::chrono::duration<float> differ = currentTime - *this->get_elapse_jump();
             if(differ.count() < 0.5f){
-                mesh->get_value().y += mov;
+                mesh->get_value().y -= mov;
             }else{
                 this->set_elapse_jump(nullptr);
             }
+        }
+    }
+
+    if(this->get_available_direction()[3] == true){
+        if(this->get_elapse_jump() == nullptr){ // gravity
+            mesh->get_value().y += mov;
         }
     }else{
         this->set_elapse_jump(nullptr);
         this->set_jump_stock(3);
     }
-
 
     mesh->get_value().x = x;
     this->reset_avail();

@@ -57,7 +57,6 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
                 dpl = tx.first;
             }
         }
-
         
         if(dir != nullptr){ // replacing
             std::string cnt = "";
@@ -119,6 +118,19 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
 
         delete dir;
     }
+
+    MeshInit pMesh;
+    pMesh.x = 120;
+    pMesh.y = 0;
+    pMesh.w = 30;
+    pMesh.h = 30;
+    pMesh.texture = G_cache->get_object_by_texture_type(DtoTextureType::BLOCK_DIRT);
+
+    DtoCollider* pCol = new DtoCollider();
+    pCol->layer = 1;
+    pCol->mask = {1, 2, 3};
+    Body* player = new OBJECT_player(pMesh, pCol);
+    obj.push_back(player);
 
     this->set_objects(obj);
 }

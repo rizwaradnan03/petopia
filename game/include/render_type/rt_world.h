@@ -13,6 +13,7 @@
 #include <nodes/2d/body/body.h>
 #include <nodes/2d/body/body_static.h>
 #include <nodes/2d/body/body_dynamic.h>
+#include <source/particle/object/o_player.h>
 #include <render_type/rt.h>
 
 class RENDER_TYPE_world: public RenderType, public SIGNATURE_garbage {

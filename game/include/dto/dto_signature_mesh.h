@@ -11,4 +11,9 @@ struct MeshInit {
     Texture texture;
 };
 
+struct MeshPole {
+    float x;
+    float y;
+};
+
 #endif

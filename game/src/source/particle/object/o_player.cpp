@@ -3,7 +3,7 @@
 OBJECT_player* G_object_player = nullptr;
 
 OBJECT_player::OBJECT_player(MeshInit meshInit, DtoCollider* collider): BODY_dynamic(meshInit, collider){
-    this->set_id(identifier::generate_id("body_dynamic"));
+    this->set_id(identifier::generate_id("object_player"));
 
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
@@ -150,5 +150,4 @@ void OBJECT_player::Execute(const std::vector<Body*>& objects){
     this->Display();
 
     std::pair<int, int> res = sys::get_screen_resolution();
-    std::cout << "X VALUE : " << res.first << std::endl;
 }
