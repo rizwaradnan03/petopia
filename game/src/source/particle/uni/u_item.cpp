@@ -1,7 +1,7 @@
-#include <source/particle/gui/g_item.h>
+#include <source/particle/uni/u_item.h>
 
-GUI_item::GUI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto): GUI_action(meshInit, poleSet){
-    this->set_id(identifier::generate_id("gui_item"));
+UNI_item::UNI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto): GUI_action(meshInit, poleSet){
+    this->set_id(identifier::generate_id("uni_item"));
     
     SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
     this->set_mesh(iMesh);
@@ -10,43 +10,43 @@ GUI_item::GUI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmo
     this->set_item_amount(itemAmountDto);
 }
 
-std::string& GUI_item::get_id(){
+std::string& UNI_item::get_id(){
     return this->id;
 }
 
-void GUI_item::set_id(std::string value){
+void UNI_item::set_id(std::string value){
     this->id = value;
 }
 
-SIGNATURE_mesh* GUI_item::get_mesh(){
+SIGNATURE_mesh* UNI_item::get_mesh(){
     return this->mesh;
 }
 
-void GUI_item::set_mesh(SIGNATURE_mesh* value){
+void UNI_item::set_mesh(SIGNATURE_mesh* value){
     this->mesh = value;
 }
 
-DtoPoleset* GUI_item::get_poleset(){
+DtoPoleset* UNI_item::get_poleset(){
     return this->poleset;
 }
 
-void GUI_item::set_poleset(DtoPoleset* value){
+void UNI_item::set_poleset(DtoPoleset* value){
     this->poleset = value;
 }
 
-DtoItemAmount& GUI_item::get_item_amount(){
+DtoItemAmount& UNI_item::get_item_amount(){
     return this->item_amount;
 }
 
-void GUI_item::set_item_amount(DtoItemAmount value){
+void UNI_item::set_item_amount(DtoItemAmount value){
     this->item_amount = value;
 }
 
-void GUI_item::Display(){
+void UNI_item::Display(){
     this->get_mesh()->Execute();
 }
 
-void GUI_item::UpdateDrill(SIGNATURE_mesh* meshDrill){
+void UNI_item::UpdateDrill(SIGNATURE_mesh* meshDrill){
     float xDr = meshDrill->get_value().x;
     float yDr = meshDrill->get_value().y;
 
@@ -57,7 +57,7 @@ void GUI_item::UpdateDrill(SIGNATURE_mesh* meshDrill){
     this->get_mesh()->get_value().y = curY + this->get_poleset()->y;
 }
 
-void GUI_item::hit_action(){
+void UNI_item::hit_action(){
     std::string* inp = input::mouse_just_click();
     if(inp == nullptr || *inp == "RIGHT"){
         return;
@@ -66,7 +66,7 @@ void GUI_item::hit_action(){
     // proc
 }
 
-void GUI_item::Execute(SIGNATURE_mesh* meshDrill){
+void UNI_item::Execute(SIGNATURE_mesh* meshDrill){
     this->UpdateDrill(meshDrill);
     this->hit_action();
     this->Display();

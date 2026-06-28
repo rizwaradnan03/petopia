@@ -5,13 +5,12 @@
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_poleset.h>
 #include <namespace/n_identifier.h>
-#include <signature/s_garbage.h>
 #include <nodes/2d/gui/gui_container.h>
 #include <nodes/2d/gui/gui_action.h>
 
 class OBJECT_player;
 
-class GUI_inventory: public GUI_container, public SIGNATURE_garbage {
+class GUI_inventory: public GUI_container {
     public:
         GUI_inventory(MeshInit meshInit, DtoPoleset* poleSet);
         ~GUI_inventory();

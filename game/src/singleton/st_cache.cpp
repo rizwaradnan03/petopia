@@ -6,13 +6,34 @@ SINGLETON_cache* G_cache = nullptr;
 
 SINGLETON_cache::SINGLETON_cache(){
     this->init_texture();
+    this->init_item();
 }
 
 std::vector<std::pair<DtoTextureType, Texture>> SINGLETON_cache::get_object(){
     return this->object;
 }
 
-Texture SINGLETON_cache::get_by_texture_type_object(DtoTextureType search){
+void SINGLETON_cache::set_object(std::vector<std::pair<DtoTextureType, Texture>> value){
+    this->object = value;
+}
+
+void SINGLETON_cache::set_push_object(std::pair<DtoTextureType, Texture> value){
+    this->object.push_back(value);
+}
+
+std::vector<std::pair<DtoTextureType, UNI_item*>> SINGLETON_cache::get_item(){
+    return this->item;
+}
+
+void SINGLETON_cache::set_item(std::vector<std::pair<DtoTextureType, UNI_item*>> value){
+    this->item = value;
+}
+
+void SINGLETON_cache::set_push_item(std::pair<DtoTextureType, UNI_item*> value){
+    this->item.push_back(value);
+}
+
+Texture SINGLETON_cache::get_object_by_texture_type(const DtoTextureType& search){
     for(int i = 0;i < this->get_object().size();i++){
         if(this->get_object()[i].first == search){
             return this->get_object()[i].second;
@@ -22,59 +43,74 @@ Texture SINGLETON_cache::get_by_texture_type_object(DtoTextureType search){
     return Texture{};
 }
 
-void SINGLETON_cache::set_object(std::vector<std::pair<DtoTextureType, Texture>> value){
-    this->object = value;
+UNI_item* SINGLETON_cache::get_item_by_texture_type(const DtoTextureType& search){
+    for(int i = 0;i < this->get_item().size();i++){
+        if(this->get_item()[i].first == search){
+            return this->get_item()[i].second;
+        }
+    }
+    
+    return nullptr;
 }
 
 void SINGLETON_cache::init_texture(){
-    std::vector<std::pair<DtoTextureType, Texture>> txt;
+    std::vector<std::pair<DtoTextureType, std::string>> initialize = {
+        std::make_pair(DtoTextureType::BLOCK_DIRT, "./storage/sprites/CPC.png"),
+    };
+
+    for(int i = 0;i < initialize.size();i++){
+        std::pair<DtoTextureType, std::string> it = initialize[i];
     
-    Image blockDirtImg = LoadImage("./storage/sprites/CPC.png");
-    if (blockDirtImg.data == nullptr) {
-        std::cout << "Gagal load image!" << std::endl;
+        Image img = LoadImage(it.second.c_str());
+        if (img.data == nullptr) {
+            std::cout << "Gagal load image!" << std::endl;
+        }
+        
+        Texture tx = LoadTextureFromImage(img);
+        UnloadImage(img);
+        
+        this->set_push_object(std::make_pair(it.first, tx));
     }
-    
-    Texture blockDirtTx = LoadTextureFromImage(blockDirtImg);
-    UnloadImage(blockDirtImg);
-    
-    DtoTextureType blockDirtTyp = DtoTextureType::BLOCK_DIRT;
-    txt.push_back(std::make_pair(blockDirtTyp, blockDirtTx));
+}
 
+void SINGLETON_cache::init_item(){
+    this->init_gun();
+    this->init_projectile();
+}
 
-    Image arroDefaultImg = LoadImage("./storage/sprites/CPC.png");
-    if (arroDefaultImg.data == nullptr) {
-        std::cout << "Gagal load image!" << std::endl;
+void SINGLETON_cache::init_gun(){
+    std::vector<std::pair<DtoTextureType, std::vector<VariantType>>> initialize = {
+        std::make_pair(DtoTextureType::GUN_PISTOL, std::vector<VariantType>{0.0f, 0.0f, 10.0f, 4.0f, get_object_by_texture_type(DtoTextureType::GUN_PISTOL)})
+    };
+
+    for(int i = 0;i < initialize.size();i++){
+        std::pair<DtoTextureType, std::vector<VariantType>> it = initialize[i];
+
+        float xVal = std::get<float>(it.second[0]);
+        float yVal = std::get<float>(it.second[1]);
+        float wVal = std::get<float>(it.second[2]);
+        float hVal = std::get<float>(it.second[3]);
+        Texture txVal = std::get<Texture>(it.second[4]);
+
+        MeshInit mGun;
+        mGun.x = xVal;
+        mGun.y = yVal;
+        mGun.w = wVal;
+        mGun.h = hVal;
+        mGun.texture = txVal;
+
+        DtoPoleset* pGun;
+        pGun->x = 0;
+        pGun->y = 0;
+
+        DtoItemAmount aGun;
+        aGun.amount = 1;
+
+        UNI_item* uGun = new UNI_item(mGun, pGun, aGun);
+        this->set_push_item(std::make_pair(it.first, uGun));
     }
-    
-    Texture arroDefaultTx = LoadTextureFromImage(arroDefaultImg);
-    UnloadImage(arroDefaultImg);
-    
-    DtoTextureType arroDefaultTyp = DtoTextureType::ARROW_DEFAULT;
-    txt.push_back(std::make_pair(arroDefaultTyp, arroDefaultTx));
+}
 
-    
-    Image arroFlameImg = LoadImage("./storage/sprites/CPC.png");
-    if (arroFlameImg.data == nullptr) {
-        std::cout << "Gagal load image!" << std::endl;
-    }
-    
-    Texture arroFlameTx = LoadTextureFromImage(arroFlameImg);
-    UnloadImage(arroFlameImg);
-    
-    DtoTextureType arroFlameTyp = DtoTextureType::ARROW_FLAME;
-    txt.push_back(std::make_pair(arroFlameTyp, arroFlameTx));
+void SINGLETON_cache::init_projectile(){
 
-    
-    Image arrowPoisonImg = LoadImage("./storage/sprites/CPC.png");
-    if (arrowPoisonImg.data == nullptr) {
-        std::cout << "Gagal load image!" << std::endl;
-    }
-    
-    Texture arrowPoisonTx = LoadTextureFromImage(arrowPoisonImg);
-    UnloadImage(arrowPoisonImg);
-    
-    DtoTextureType arrowPoisonTyp = DtoTextureType::ARROW_POISON;
-    txt.push_back(std::make_pair(arrowPoisonTyp, arrowPoisonTx));
-
-    this->set_object(txt);
 }

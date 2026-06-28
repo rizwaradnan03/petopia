@@ -8,10 +8,10 @@ OBJECT_projectile::OBJECT_projectile(MeshInit meshInit, DtoCollider* collider, D
 
     this->set_collider(collider);
 
-    std::vector<VariantType> pVar = entity::get_projectile_by_dto_texture_type(keyType);
-    uint16_t dmg = std::get<uint16_t>(pVar[2]);
+    // std::vector<VariantType> pVar = entity::get_projectile_by_dto_texture_type(keyType);
+    // uint16_t dmg = std::get<uint16_t>(pVar[2]);
 
-    this->set_damage(dmg);
+    // this->set_damage(dmg);
 }
 
 OBJECT_projectile::~OBJECT_projectile(){

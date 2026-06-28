@@ -104,7 +104,7 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
             mesh.y = y.second;
             mesh.w = w.second;
             mesh.h = h.second;
-            mesh.texture = G_cache->get_by_texture_type_object(tx.second);
+            mesh.texture = G_cache->get_object_by_texture_type(tx.second);
 
             Body* bd = new BODY_static(mesh, col);
     

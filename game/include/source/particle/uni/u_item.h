@@ -1,5 +1,5 @@
-#ifndef GUI_ITEM_H
-#define GUI_ITEM_H
+#ifndef UNI_ITEM_H
+#define UNI_ITEM_H
 
 #include <config/c_pch.h>
 #include <dto/dto_poleset.h>
@@ -8,9 +8,9 @@
 #include <namespace/n_identifier.h>
 #include <nodes/2d/gui/gui_action.h>
 
-class GUI_item: GUI_action {
+class UNI_item: GUI_action {
     public:
-        GUI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
+        UNI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
         
         std::string& get_id();
         void set_id(std::string value);

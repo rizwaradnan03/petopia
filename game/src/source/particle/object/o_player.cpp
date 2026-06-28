@@ -79,11 +79,11 @@ void OBJECT_player::set_push_gui_containers(GUI_container* value){
     this->gui_containers.push_back(value);
 }
 
-GUI_item* OBJECT_player::get_hold_item(){
+UNI_item* OBJECT_player::get_hold_item(){
     return this->hold_item;
 }
 
-void OBJECT_player::set_hold_item(GUI_item* value){
+void OBJECT_player::set_hold_item(UNI_item* value){
     this->hold_item = value;
 }
 

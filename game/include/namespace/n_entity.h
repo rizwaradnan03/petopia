@@ -10,11 +10,11 @@ namespace entity {
     extern std::vector<std::pair<std::string, DtoTextureType>> list;
     DtoTextureType* get_texture_type_by_name(const std::string& name);
 
-    // extern std::vector<std::vector<VariantType>> projectiles;
-    extern std::vector<std::pair<DtoTextureType, std::vector<DtoEffectType>>> projectiles;
-    std::vector<VariantType> get_projectile_by_dto_texture_type(DtoTextureType& tex);
+    extern std::vector<std::pair<DtoTextureType, std::vector<DtoTextureType>>> guns; 
+    std::pair<DtoTextureType*, std::vector<DtoTextureType*>> get_gun_by_texture_type(DtoTextureType& tex);
 
-    extern std::vector<std::pair<DtoTextureType, std::vector<DtoTextureType>>> guns; // gun with list of projectile that it could be
+    extern std::vector<std::pair<DtoTextureType, std::vector<DtoEffectType>>> projectiles;
+    std::pair<DtoTextureType*, std::vector<DtoEffectType*>> get_projectile_by_dto_texture_type(DtoTextureType& tex);
 };
 
 #endif

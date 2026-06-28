@@ -120,7 +120,7 @@ void GUI_inventory::select_item_action(){
         if(right && left && top && bottom){
             if(this->get_selected_item_id() != nullptr){
                 if(nd[i]->get_id() == *this->get_selected_item_id()){
-                    GUI_item* cstAction = dynamic_cast<GUI_item*>(nd[i]);
+                    UNI_item* cstAction = dynamic_cast<UNI_item*>(nd[i]);
                     G_object_player->set_hold_item(cstAction);
                 }
             }else{
