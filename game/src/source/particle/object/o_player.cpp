@@ -2,10 +2,10 @@
 
 OBJECT_player* G_object_player = nullptr;
 
-OBJECT_player::OBJECT_player(MeshInit meshInit, DtoCollider* collider): BODY_dynamic(meshInit, collider){
+OBJECT_player::OBJECT_player(DtoRawMesh rawMesh, DtoCollider* collider): BODY_dynamic(rawMesh, collider){
     this->set_id(identifier::generate_id("object_player"));
 
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     SIGNATURE_movement* iMovement = new SIGNATURE_movement();
@@ -25,6 +25,23 @@ OBJECT_player::OBJECT_player(MeshInit meshInit, DtoCollider* collider): BODY_dyn
     this->set_camera(iCam);
 
     G_object_player = this;
+
+    // STATUS: temporary
+    DtoRawMesh cart;
+    cart.cartesian.x = this->get_mesh()->get_value().x;
+    cart.cartesian.y = this->get_mesh()->get_value().y;
+    cart.cartesian.w = 240;
+    cart.cartesian.h = 60;
+    cart.rawTextures = {
+        std::make_pair("default", "GUN"),
+    };
+
+    DtoPoleset* mPoleSet = new DtoPoleset();
+    mPoleSet->x = 0;
+    mPoleSet->y = 60;
+
+    GUI_container* inventory = new GUI_inventory(cart, mPoleSet);
+    this->set_push_gui_containers(inventory);
 }
 
 std::string& OBJECT_player::get_id(){
@@ -137,9 +154,9 @@ void OBJECT_player::Display(){
     this->get_mesh()->Execute();
 
     std::vector<GUI_container*> gc = this->get_gui_containers();
-    for(int i = 0;i < gc.size();i++){
-        gc[i]->Execute(this->get_mesh());
-    }
+    // for(int i = 0;i < gc.size();i++){
+    //     gc[i]->Execute(this->get_mesh());
+    // }
 
     this->get_camera()->Execute(*this->get_mesh());
 }

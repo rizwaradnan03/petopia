@@ -2,10 +2,13 @@
 #define SIGNATURE_MESH_H
 
 #include <dto/dto_signature_mesh.h>
+#include <dto/dto_raw_mesh.h>
+#include <namespace/n_system.h>
+#include <singleton/st_cache.h>
 
 class SIGNATURE_mesh {
     public:
-        SIGNATURE_mesh(MeshInit value);
+        SIGNATURE_mesh(DtoRawMesh value); // name and alike
 
         MeshInit& get_value();
         void set_value(MeshInit value);

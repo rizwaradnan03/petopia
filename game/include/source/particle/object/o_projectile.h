@@ -10,7 +10,7 @@
 
 class OBJECT_projectile: public BODY_static {
     public:
-        OBJECT_projectile(MeshInit meshInit, DtoCollider* collider, DtoProjectileAcceleration projectAccelerationDto, DtoTextureType textureKey);
+        OBJECT_projectile(DtoRawMesh rawMesh, DtoCollider* collider, DtoProjectileAcceleration projectAccelerationDto, DtoTextureType textureKey);
         ~OBJECT_projectile();
 
         std::string& get_id() override;

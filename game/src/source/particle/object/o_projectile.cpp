@@ -1,9 +1,9 @@
 #include <source/particle/object/o_projectile.h>
 
-OBJECT_projectile::OBJECT_projectile(MeshInit meshInit, DtoCollider* collider, DtoProjectileAcceleration, DtoTextureType keyType): BODY_static(meshInit, collider){
+OBJECT_projectile::OBJECT_projectile(DtoRawMesh rawMesh, DtoCollider* collider, DtoProjectileAcceleration, DtoTextureType keyType): BODY_static(rawMesh, collider){
     this->set_id(identifier::generate_id("body_static"));
 
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_collider(collider);

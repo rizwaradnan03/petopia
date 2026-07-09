@@ -4,10 +4,11 @@
 #include <config/c_pch.h>
 #include <engine/e_variant.h>
 #include <dto/dto_texture.h>
-#include <source/particle/uni/u_item.h>
+#include <namespace/n_entity.h>
 
 class Body;
 class Gui;
+class UNI_item;
 
 class SINGLETON_cache {
     public:
@@ -26,6 +27,8 @@ class SINGLETON_cache {
         
         Texture get_object_by_texture_type(const DtoTextureType& search);
         UNI_item* get_item_by_texture_type(const DtoTextureType& search);
+
+        std::vector<Texture> get_all_objects_with_the_similar_title(std::string title);
 
         void init_texture();
         void init_item();

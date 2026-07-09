@@ -9,6 +9,7 @@
 namespace entity {
     extern std::vector<std::pair<std::string, DtoTextureType>> list;
     DtoTextureType* get_texture_type_by_name(const std::string& name);
+    std::string* get_name_by_texture(const DtoTextureType& txt);
 
     extern std::vector<std::pair<DtoTextureType, std::vector<DtoTextureType>>> guns; 
     std::pair<DtoTextureType*, std::vector<DtoTextureType*>> get_gun_by_texture_type(DtoTextureType& tex);

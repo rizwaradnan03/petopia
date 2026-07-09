@@ -12,7 +12,7 @@ class OBJECT_player;
 
 class GUI_inventory: public GUI_container {
     public:
-        GUI_inventory(MeshInit meshInit, DtoPoleset* poleSet);
+        GUI_inventory(DtoRawMesh rawMesh, DtoPoleset* poleSet);
         ~GUI_inventory();
 
         bool delete_checker(void* mem) override;

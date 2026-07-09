@@ -1,9 +1,9 @@
 #include <nodes/2d/body/body.h>
 
-Body::Body(MeshInit meshInit, DtoCollider* collider){
+Body::Body(DtoRawMesh rawMesh, DtoCollider* collider){
     this->set_id(identifier::generate_id("body"));
 
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
     this->set_collider(collider);
 }

@@ -3,6 +3,7 @@
 
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_poleset.h>
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_identifier.h>
 #include <nodes/2d/gui/gui_click.h>
 #include <nodes/2d/gui/gui_point.h>
@@ -12,7 +13,7 @@ class GUI_action: public GUI_click, public GUI_point {
         using GUI_click::hit_action;
         using GUI_point::point_action;
         
-        GUI_action(MeshInit meshInit, DtoPoleset* poleSet);
+        GUI_action(DtoRawMesh rawMesh, DtoPoleset* poleSet);
         ~GUI_action();
 
         std::string& get_id();

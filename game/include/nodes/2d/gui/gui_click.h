@@ -2,13 +2,15 @@
 #define GUI_GUI_CLICK_H
 
 #include <config/c_pch.h>
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_input.h>
 #include <namespace/n_identifier.h>
+#include <signature/s_mesh.h>
 #include <nodes/2d/gui/gui.h>
 
 class GUI_click: public Gui {
     public:
-        GUI_click(MeshInit meshInit, DtoPoleset* poleSet);
+        GUI_click(DtoRawMesh rawMesh, DtoPoleset* poleSet);
         ~GUI_click();
 
         std::string& get_id();

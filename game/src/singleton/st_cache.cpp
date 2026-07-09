@@ -1,6 +1,7 @@
 #include <singleton/st_cache.h>
 #include <nodes/2d/body/body.h>
 #include <nodes/2d/gui/gui.h>
+#include <source/particle/uni/u_item.h>
 
 SINGLETON_cache* G_cache = nullptr;
 
@@ -73,6 +74,25 @@ void SINGLETON_cache::init_texture(){
     }
 }
 
+std::vector<Texture> SINGLETON_cache::get_all_objects_with_the_similar_title(std::string title){
+    std::vector<std::pair<std::string, DtoTextureType>> lst = entity::list;
+    
+    std::vector<Texture> toReturn;
+    for(int i = 0;i < lst.size();i++){
+        for(int j = 0;j < title.size();j++){
+            if(lst[i].first[j] != title[j]){
+                break;
+            }
+
+            if(j == title.size() - 1){
+                toReturn.push_back(get_object_by_texture_type(lst[i].second));
+            }
+        }
+    }
+
+    return toReturn;
+}
+
 void SINGLETON_cache::init_item(){
     this->init_gun();
     this->init_projectile();
@@ -80,7 +100,7 @@ void SINGLETON_cache::init_item(){
 
 void SINGLETON_cache::init_gun(){
     std::vector<std::pair<DtoTextureType, std::vector<VariantType>>> initialize = {
-        std::make_pair(DtoTextureType::GUN_PISTOL, std::vector<VariantType>{0.0f, 0.0f, 10.0f, 4.0f, get_object_by_texture_type(DtoTextureType::GUN_PISTOL)})
+        std::make_pair(DtoTextureType::GUN_PISTOL, std::vector<VariantType>{0.0f, 0.0f, 10.0f, 4.0f, "GUN_PISTOL"})
     };
 
     for(int i = 0;i < initialize.size();i++){
@@ -90,23 +110,21 @@ void SINGLETON_cache::init_gun(){
         float yVal = std::get<float>(it.second[1]);
         float wVal = std::get<float>(it.second[2]);
         float hVal = std::get<float>(it.second[3]);
-        Texture txVal = std::get<Texture>(it.second[4]);
+        std::string rawTxVal = std::get<std::string>(it.second[4]);
 
-        MeshInit mGun;
-        mGun.x = xVal;
-        mGun.y = yVal;
-        mGun.w = wVal;
-        mGun.h = hVal;
-        mGun.texture = txVal;
+        DtoRawMesh rawMesh;
+        rawMesh.rawTextures = {
+            std::make_pair("default", rawTxVal)
+        };
 
-        DtoPoleset* pGun;
+        DtoPoleset* pGun = new DtoPoleset();
         pGun->x = 0;
         pGun->y = 0;
 
         DtoItemAmount aGun;
         aGun.amount = 1;
 
-        UNI_item* uGun = new UNI_item(mGun, pGun, aGun);
+        UNI_item* uGun = new UNI_item(rawMesh, pGun, aGun);
         this->set_push_item(std::make_pair(it.first, uGun));
     }
 }

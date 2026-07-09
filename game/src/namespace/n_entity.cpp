@@ -8,14 +8,23 @@ namespace entity {
     };
 
     DtoTextureType* get_texture_type_by_name(const std::string& name){
-        DtoTextureType* ret = nullptr;
         for(int i = 0;i < list.size();i++){
             if(list[i].first == name){
                 return &list[i].second;
             }
         }
 
-        return ret;
+        return nullptr;
+    }
+
+    std::string* get_name_by_texture(const DtoTextureType& txt){
+        for(int i = 0;i < list.size();i++){
+            if(list[i].second == txt){
+                return &list[i].first;
+            }
+        }
+
+        return nullptr;
     }
 
     std::vector<std::pair<DtoTextureType, std::vector<DtoTextureType>>> guns = {

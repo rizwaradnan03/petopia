@@ -1,9 +1,9 @@
 #include <source/particle/uni/u_item.h>
 
-UNI_item::UNI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto): GUI_action(meshInit, poleSet){
+UNI_item::UNI_item(DtoRawMesh rawMesh, DtoPoleset* poleSet, DtoItemAmount itemAmountDto): GUI_action(rawMesh, poleSet){
     this->set_id(identifier::generate_id("uni_item"));
     
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);

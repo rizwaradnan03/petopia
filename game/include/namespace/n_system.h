@@ -11,6 +11,8 @@ namespace sys {
     std::pair<int, int> get_half_resolution();
     int get_half_width();
     int get_half_height();
+
+    std::chrono::time_point<std::chrono::high_resolution_clock> get_current_time();
 };
 
 #endif

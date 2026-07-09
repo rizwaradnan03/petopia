@@ -1,9 +1,9 @@
 #include <nodes/2d/body/body_dynamic.h>
 
-BODY_dynamic::BODY_dynamic(MeshInit meshInit, DtoCollider* collider): Body(meshInit, collider){
+BODY_dynamic::BODY_dynamic(DtoRawMesh rawMesh, DtoCollider* collider): Body(rawMesh, collider){
     this->set_id(identifier::generate_id("body_dynamic"));
 
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     SIGNATURE_movement* iMovement = new SIGNATURE_movement();

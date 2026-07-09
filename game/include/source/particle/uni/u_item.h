@@ -3,32 +3,33 @@
 
 #include <config/c_pch.h>
 #include <dto/dto_poleset.h>
-#include <dto/dto_signature_mesh.h>
 #include <dto/dto_item_amount.h>
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_identifier.h>
+#include <signature/s_mesh.h>
 #include <nodes/2d/gui/gui_action.h>
 
-class UNI_item: GUI_action {
+class UNI_item: public GUI_action { // uni item adalah item dalam in game, dia bersifat uni
     public:
-        UNI_item(MeshInit meshInit, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
+        UNI_item(DtoRawMesh rawMesh, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
         
         std::string& get_id();
         void set_id(std::string value);
 
-        SIGNATURE_mesh* get_mesh() override;
-        void set_mesh(SIGNATURE_mesh* value) override;
+        SIGNATURE_mesh* get_mesh();
+        void set_mesh(SIGNATURE_mesh* value);
 
-        DtoPoleset* get_poleset() override;
-        void set_poleset(DtoPoleset* value) override;
+        DtoPoleset* get_poleset();
+        void set_poleset(DtoPoleset* value);
 
         DtoItemAmount& get_item_amount();
         void set_item_amount(DtoItemAmount value);
 
         void hit_action();
 
-        void Display() override;
-        void UpdateDrill(SIGNATURE_mesh* meshDrill) override;
-        void Execute(SIGNATURE_mesh* meshDrill) override;
+        void Display();
+        void UpdateDrill(SIGNATURE_mesh* meshDrill);
+        void Execute(SIGNATURE_mesh* meshDrill);
 
     private:
         std::string id;

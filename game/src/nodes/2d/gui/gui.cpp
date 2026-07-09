@@ -1,9 +1,10 @@
 #include <nodes/2d/gui/gui.h>
+#include <signature/s_mesh.h>
 
-Gui::Gui(MeshInit meshInit, DtoPoleset* poleSet){
+Gui::Gui(DtoRawMesh rawMesh, DtoPoleset* poleSet){
     this->set_id(identifier::generate_id("gui"));
     
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);

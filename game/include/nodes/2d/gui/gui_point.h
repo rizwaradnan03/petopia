@@ -1,13 +1,15 @@
 #ifndef GUI_GUI_POINT_H
 #define GUI_GUI_POINT_H
 
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_input.h>
 #include <namespace/n_identifier.h>
+#include <signature/s_mesh.h>
 #include <nodes/2d/gui/gui.h>
 
 class GUI_point: public Gui {
     public:
-        GUI_point(MeshInit meshInit, DtoPoleset* poleSet);
+        GUI_point(DtoRawMesh rawMesh, DtoPoleset* poleSet);
         ~GUI_point();
 
         std::string& get_id();

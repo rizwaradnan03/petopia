@@ -1,7 +1,7 @@
 #include <nodes/2d/gui/gui_container.h>
 
-GUI_container::GUI_container(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+GUI_container::GUI_container(DtoRawMesh rawMesh, DtoPoleset* poleSet): Gui(rawMesh, poleSet){
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);

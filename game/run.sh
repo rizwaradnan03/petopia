@@ -19,4 +19,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-./start
+gdb \
+-batch \
+-ex "run" \
+-ex "bt full" \
+--args ./start

@@ -1,9 +1,9 @@
 #include <source/particle/gui/g_inventory.h>
 #include <source/particle/object/o_player.h>
 
-GUI_inventory::GUI_inventory(MeshInit meshInit, DtoPoleset* poleSet): GUI_container(meshInit, poleSet){
+GUI_inventory::GUI_inventory(DtoRawMesh rawMesh, DtoPoleset* poleSet): GUI_container(rawMesh, poleSet){
     this->set_id(identifier::generate_id("gui_inventory"));
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);
@@ -96,11 +96,13 @@ void GUI_inventory::UpdateDrill(SIGNATURE_mesh* meshDrill){
     float xDr = meshDrill->get_value().x;
     float yDr = meshDrill->get_value().y;
 
-    float curX = this->get_mesh()->get_value().x;
-    float curY = this->get_mesh()->get_value().y;
+    DtoPoleset* pSet = this->get_poleset();
 
-    this->get_mesh()->get_value().x = curX + this->get_poleset()->x;
-    this->get_mesh()->get_value().y = curY + this->get_poleset()->y;
+    float calcX = xDr + pSet->x;
+    float calcY = yDr + pSet->y;
+
+    this->get_mesh()->get_value().x = calcX;
+    this->get_mesh()->get_value().y = calcY;
 }
 
 void GUI_inventory::action(){
@@ -134,5 +136,8 @@ void GUI_inventory::select_item_action(){
 void GUI_inventory::Execute(SIGNATURE_mesh* meshDrill){
     this->UpdateDrill(meshDrill);
     this->Display();
+
+    std::cout << "Y INVENTORY : " << this->get_mesh()->get_value().y << std::endl;
+
     this->action();
 }

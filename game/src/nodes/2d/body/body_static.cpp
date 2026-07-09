@@ -1,9 +1,9 @@
 #include <nodes/2d/body/body_static.h>
 
-BODY_static::BODY_static(MeshInit meshInit, DtoCollider* collider): Body(meshInit, collider){
+BODY_static::BODY_static(DtoRawMesh rawMesh, DtoCollider* collider): Body(rawMesh, collider){
     this->set_id(identifier::generate_id("body_static"));
 
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_collider(collider);

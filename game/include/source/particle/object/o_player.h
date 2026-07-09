@@ -8,13 +8,15 @@
 #include <signature/s_camera.h>
 #include <signature/s_mesh.h>
 #include <signature/s_movement.h>
+#include <singleton/st_cache.h>
 #include <nodes/2d/body/body_dynamic.h>
 #include <nodes/2d/gui/gui_container.h>
 #include <source/particle/uni/u_item.h>
+#include <source/particle/gui/g_inventory.h>
 
 class OBJECT_player: public BODY_dynamic {
     public:
-        OBJECT_player(MeshInit meshInit, DtoCollider* collider);
+        OBJECT_player(DtoRawMesh rawMesh, DtoCollider* collider);
 
         std::string& get_id() override;
         void set_id(std::string value) override;

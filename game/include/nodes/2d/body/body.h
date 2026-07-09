@@ -2,6 +2,7 @@
 #define BODY_BODY_H
 
 #include <config/c_pch.h>
+#include <dto/dto_raw_mesh.h>
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_collider.h>
 #include <namespace/n_identifier.h>
@@ -9,7 +10,7 @@
 
 class Body {
     public:
-        Body(MeshInit meshInit, DtoCollider* collider);
+        Body(DtoRawMesh rawMesh, DtoCollider* collider);
         ~Body();
 
         virtual std::string& get_id();

@@ -29,4 +29,8 @@ namespace sys {
     int get_half_height(){
         return get_resolution_height() / 2;
     }
+
+    std::chrono::time_point<std::chrono::high_resolution_clock> get_current_time(){
+        return std::chrono::high_resolution_clock::now();
+    }
 };

@@ -3,6 +3,7 @@
 
 #include <dto/dto_collider.h>
 #include <dto/dto_signature_mesh.h>
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_physic.h>
 #include <signature/s_mesh.h>
 #include <signature/s_movement.h>
@@ -10,7 +11,7 @@
 
 class BODY_static: public Body {
     public:
-        BODY_static(MeshInit meshInit, DtoCollider* collider);
+        BODY_static(DtoRawMesh rawMesh, DtoCollider* collider);
         ~BODY_static();
 
         virtual std::string& get_id() override;

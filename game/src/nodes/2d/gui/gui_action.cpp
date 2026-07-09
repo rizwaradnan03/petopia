@@ -1,8 +1,8 @@
 #include <nodes/2d/gui/gui_action.h>
 
-GUI_action::GUI_action(MeshInit meshInit, DtoPoleset* poleSet): GUI_click(meshInit, poleSet), GUI_point(meshInit, poleSet){
+GUI_action::GUI_action(DtoRawMesh rawMesh, DtoPoleset* poleSet): GUI_click(rawMesh, poleSet), GUI_point(rawMesh, poleSet){
     this->set_id(identifier::generate_id("gui_action"));
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);

@@ -2,6 +2,7 @@
 #define BODY_DYNAMIC_BODY
 
 #include <dto/dto_collider.h>
+#include <dto/dto_raw_mesh.h>
 #include <dto/dto_signature_mesh.h>
 #include <namespace/n_physic.h>
 #include <signature/s_mesh.h>
@@ -10,7 +11,7 @@
 
 class BODY_dynamic: public Body {
     public:
-        BODY_dynamic(MeshInit meshInit, DtoCollider* collider);
+        BODY_dynamic(DtoRawMesh rawMesh, DtoCollider* collider);
         ~BODY_dynamic();
 
         virtual std::string& get_id() override;

@@ -98,14 +98,18 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
             col->layer = 1;
             col->mask = {};
             
-            MeshInit mesh;
-            mesh.x = x.second;
-            mesh.y = y.second;
-            mesh.w = w.second;
-            mesh.h = h.second;
-            mesh.texture = G_cache->get_object_by_texture_type(tx.second);
+            std::string* strFromTextureEnum = entity::get_name_by_texture(tx.second);
 
-            Body* bd = new BODY_static(mesh, col);
+            DtoRawMesh rawMesh;
+            rawMesh.cartesian.x = x.second;
+            rawMesh.cartesian.y = y.second;
+            rawMesh.cartesian.w = w.second;
+            rawMesh.cartesian.h = h.second;
+            rawMesh.rawTextures = {
+                std::make_pair("default", *strFromTextureEnum)
+            };
+
+            Body* bd = new BODY_static(rawMesh, col);
     
             hasX = false;
             hasY = false;
@@ -119,17 +123,19 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName): RenderType(){
         delete dir;
     }
 
-    MeshInit pMesh;
-    pMesh.x = 120;
-    pMesh.y = 0;
-    pMesh.w = 30;
-    pMesh.h = 30;
-    pMesh.texture = G_cache->get_object_by_texture_type(DtoTextureType::BLOCK_DIRT);
+    DtoRawMesh cart;
+    cart.cartesian.x = 120;
+    cart.cartesian.y = 0;
+    cart.cartesian.w = 30;
+    cart.cartesian.h = 30;
+    cart.rawTextures = {
+        std::make_pair("default", "BLOCK_")
+    };
 
     DtoCollider* pCol = new DtoCollider();
     pCol->layer = 1;
     pCol->mask = {1, 2, 3};
-    Body* player = new OBJECT_player(pMesh, pCol);
+    Body* player = new OBJECT_player(cart, pCol);
     obj.push_back(player);
 
     this->set_objects(obj);

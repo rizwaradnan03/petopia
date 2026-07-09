@@ -1,8 +1,8 @@
 #include <nodes/2d/gui/gui_point.h>
 
-GUI_point::GUI_point(MeshInit meshInit, DtoPoleset* poleSet): Gui(meshInit, poleSet){
+GUI_point::GUI_point(DtoRawMesh rawMesh, DtoPoleset* poleSet): Gui(rawMesh, poleSet){
     this->set_id(identifier::generate_id("gui_point"));
-    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(meshInit);
+    SIGNATURE_mesh* iMesh = new SIGNATURE_mesh(rawMesh);
     this->set_mesh(iMesh);
 
     this->set_poleset(poleSet);

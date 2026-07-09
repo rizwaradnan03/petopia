@@ -2,12 +2,14 @@
 #define GUI_GUI_H
 
 #include <dto/dto_poleset.h>
+#include <dto/dto_raw_mesh.h>
 #include <namespace/n_identifier.h>
-#include <signature/s_mesh.h>
+
+class SIGNATURE_mesh;
 
 class Gui {
     public:
-        Gui(MeshInit meshInit, DtoPoleset* poleSet);
+        Gui(DtoRawMesh rawMesh, DtoPoleset* poleSet);
         ~Gui();
 
         std::string& get_id();

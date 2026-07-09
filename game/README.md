@@ -1,8 +1,1 @@
-<!-- NOTE -->
-1. The world isn't cartesian...every start point is from top left corner
-
-<!-- C++ NOTE -->
-1. using & for return is simply returning the actual object
-
-<!-- Work Note -->
-1. aneh kenapa player jadi terbang
+<!-- JADI GINI SI n_entity itu ada middleman sebagai list aja yang sekiranya memiliki relasi, nahh kalo source nya itu tetep dari st_cache -->

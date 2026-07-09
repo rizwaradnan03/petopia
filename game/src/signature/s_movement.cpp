@@ -2,6 +2,7 @@
 
 SIGNATURE_movement::SIGNATURE_movement(){
     this->reset_avail();
+    this->set_elapse_jump(nullptr);
 }
 
 void SIGNATURE_movement::Execute(SIGNATURE_mesh* mesh){
