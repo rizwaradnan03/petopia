@@ -1,27 +1,34 @@
+#include <render_type/rt_gui.h>
+#include <render_type/rt_world.h>
 #include <singleton/st_render.h>
 
-SINGLETON_render* G_render = nullptr;
+SINGLETON_render *G_render = nullptr;
 
-RenderType* SINGLETON_render::get_select(){
-    return this->select;
+RenderType *SINGLETON_render::get_select() { return this->select; }
+
+void SINGLETON_render::set_select(RenderType *value) { this->select = value; }
+
+void SINGLETON_render::change_screen(DtoRenderType worldType,
+                                     std::string screenName) {
+  RenderType *rt;
+
+  if (worldType == DtoRenderType::WORLD) {
+    rt = new RENDER_TYPE_world(screenName);
+  } else if (worldType == DtoRenderType::GUI) {
+    // rt = new RENDER_TYPE_gui()
+  }
+
+  this->set_select(rt);
 }
 
-void SINGLETON_render::set_select(RenderType* value){
-    this->select = value;
+Camera2D *SINGLETON_render::get_globalize_camera() {
+  return this->globalize_camera;
 }
 
-void SINGLETON_render::change_screen(DtoRenderType worldType, std::string screenName){
-    RenderType* rt;
-
-    if(worldType == DtoRenderType::WORLD){
-        rt = new RENDER_TYPE_world(screenName);
-    }else if(worldType == DtoRenderType::GUI){
-        // rt = new RENDER_TYPE_gui()
-    }
-
-    this->set_select(rt);
+void SINGLETON_render::set_globalize_camera(Camera2D *value) {
+  this->globalize_camera = value;
 }
 
-void SINGLETON_render::Execute(){
-    this->get_select()->Execute(); // run the selected
+void SINGLETON_render::Execute() {
+  this->get_select()->Execute(); // run the selected
 }

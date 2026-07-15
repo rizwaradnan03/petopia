@@ -22,10 +22,11 @@ int main() {
 
   while (!WindowShouldClose()) {
     BeginDrawing();
-
     ClearBackground(BLUE);
 
-    G_render->Execute(); 
+    // BeginMode2D(*G_render->get_globalize_camera());
+    G_render->Execute();
+    // EndMode2D();
 
     EndDrawing();
   }

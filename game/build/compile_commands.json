@@ -1,0 +1,182 @@
+[
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/cmd/main.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/cmd/main.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/cmd/main.cpp",
+  "output": "CMakeFiles/petopia.dir/cmd/main.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/config/c_pch.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/config/c_pch.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/config/c_pch.cpp",
+  "output": "CMakeFiles/petopia.dir/src/config/c_pch.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_callback.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_callback.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_callback.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_callback.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_entity.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_entity.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_entity.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_entity.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_file.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_file.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_file.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_file.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_identifier.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_identifier.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_identifier.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_identifier.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_input.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_input.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_input.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_input.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_physic.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_physic.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_physic.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_physic.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/namespace/n_system.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_system.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/namespace/n_system.cpp",
+  "output": "CMakeFiles/petopia.dir/src/namespace/n_system.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/body/body.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/body/body.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/body/body_dynamic.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body_dynamic.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body_dynamic.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/body/body_dynamic.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/body/body_static.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body_static.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/body/body_static.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/body/body_static.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/gui/gui.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/gui/gui.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_action.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_action.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_action.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_action.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_click.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_click.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_click.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_click.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_container.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_container.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_container.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_container.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_point.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_point.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/nodes/2d/gui/gui_point.cpp",
+  "output": "CMakeFiles/petopia.dir/src/nodes/2d/gui/gui_point.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/render_type/rt.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/render_type/rt.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/render_type/rt.cpp",
+  "output": "CMakeFiles/petopia.dir/src/render_type/rt.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/render_type/rt_world.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/render_type/rt_world.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/render_type/rt_world.cpp",
+  "output": "CMakeFiles/petopia.dir/src/render_type/rt_world.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/signature/s_camera.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_camera.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_camera.cpp",
+  "output": "CMakeFiles/petopia.dir/src/signature/s_camera.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/signature/s_garbage.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_garbage.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_garbage.cpp",
+  "output": "CMakeFiles/petopia.dir/src/signature/s_garbage.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/signature/s_mesh.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_mesh.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_mesh.cpp",
+  "output": "CMakeFiles/petopia.dir/src/signature/s_mesh.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/signature/s_movement.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_movement.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/signature/s_movement.cpp",
+  "output": "CMakeFiles/petopia.dir/src/signature/s_movement.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/singleton/st_cache.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_cache.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_cache.cpp",
+  "output": "CMakeFiles/petopia.dir/src/singleton/st_cache.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/singleton/st_render.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_render.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_render.cpp",
+  "output": "CMakeFiles/petopia.dir/src/singleton/st_render.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/singleton/st_system.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_system.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/singleton/st_system.cpp",
+  "output": "CMakeFiles/petopia.dir/src/singleton/st_system.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/source/particle/gui/g_inventory.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/gui/g_inventory.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/gui/g_inventory.cpp",
+  "output": "CMakeFiles/petopia.dir/src/source/particle/gui/g_inventory.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/source/particle/object/o_player.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/object/o_player.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/object/o_player.cpp",
+  "output": "CMakeFiles/petopia.dir/src/source/particle/object/o_player.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/source/particle/object/o_projectile.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/object/o_projectile.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/object/o_projectile.cpp",
+  "output": "CMakeFiles/petopia.dir/src/source/particle/object/o_projectile.cpp.o"
+},
+{
+  "directory": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build",
+  "command": "/usr/bin/c++ -DDEBUG -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -DUSE_LIBTYPE_SHARED -I/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/include -g -std=c++20 -Wall -Wextra -Wpedantic -o CMakeFiles/petopia.dir/src/source/particle/uni/u_item.cpp.o -c /home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/uni/u_item.cpp",
+  "file": "/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/src/source/particle/uni/u_item.cpp",
+  "output": "CMakeFiles/petopia.dir/src/source/particle/uni/u_item.cpp.o"
+}
+]

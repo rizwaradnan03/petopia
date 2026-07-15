@@ -1,25 +1,30 @@
 #ifndef SINGLETON_RENDER_H
 #define SINGLETON_RENDER_H
 
-#include <dto/dto_render_type.h>
 #include <config/c_pch.h>
+#include <dto/dto_render_type.h>
 #include <render_type/rt.h>
-#include <render_type/rt_world.h>
-#include <render_type/rt_gui.h>
+
+class RENDER_TYPE_world;
+class RENDER_TYPE_gui;
 
 class SINGLETON_render {
-    public:
-        RenderType* get_select();
-        void set_select(RenderType* value);
+public:
+  RenderType *get_select();
+  void set_select(RenderType *value);
 
-        void change_screen(DtoRenderType worldType, std::string screenName);
+  void change_screen(DtoRenderType worldType, std::string screenName);
 
-        void Execute();
+  Camera2D *get_globalize_camera();
+  void set_globalize_camera(Camera2D *value);
 
-    private:
-        RenderType* select;
+  void Execute();
+
+private:
+  RenderType *select;
+  Camera2D *globalize_camera;
 };
 
-extern SINGLETON_render* G_render;
+extern SINGLETON_render *G_render;
 
 #endif

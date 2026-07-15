@@ -137,7 +137,5 @@ void GUI_inventory::Execute(SIGNATURE_mesh* meshDrill){
     this->UpdateDrill(meshDrill);
     this->Display();
 
-    std::cout << "Y INVENTORY : " << this->get_mesh()->get_value().y << std::endl;
-
     this->action();
 }

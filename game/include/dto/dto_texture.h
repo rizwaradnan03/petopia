@@ -4,6 +4,9 @@
 #include <config/c_pch.h>
 
 enum DtoTextureType {
+    // BODY
+    BODY_PLAYER,
+
     BLOCK_DIRT,
     BLOCK_SAND,
     BLOCK_STONE,

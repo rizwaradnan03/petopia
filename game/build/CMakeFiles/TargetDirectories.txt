@@ -1,0 +1,3 @@
+/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build/CMakeFiles/petopia.dir
+/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build/CMakeFiles/edit_cache.dir
+/home/rizwarmcgovney/Documents/coding/work/mb-studio/petopia/game/build/CMakeFiles/rebuild_cache.dir
