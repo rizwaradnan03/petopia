@@ -74,7 +74,7 @@ void GUI_inventory::Display(){
     this->get_mesh()->Execute();
 
     std::vector<GUI_action*> nds = this->get_nodes();
-    for(int i = 0;i < nds.size();i++){
+    for(uint8_t i = 0;i < nds.size();i++){
         GUI_action* g = nds[i];
 
         bool b = this->delete_checker(g);
@@ -110,8 +110,10 @@ void GUI_inventory::action(){
 }
 
 void GUI_inventory::select_item_action(){
+    std::pair<float, float> mPosPlayerAsPole = input::mouse_position_player_as_pole();
+
     std::vector<GUI_action*> nd = this->get_nodes();
-    for(int i = 0;i < nd.size();i++){
+    for(uint8_t i = 0;i < nd.size();i++){
         SIGNATURE_mesh* ndMesh = nd[i]->get_mesh();
 
         int right = ndMesh->get_right_position();
@@ -119,7 +121,7 @@ void GUI_inventory::select_item_action(){
         int top = ndMesh->get_top_position();
         int bottom = ndMesh->get_bottom_position();
 
-        if(right && left && top && bottom){
+        if(mPosPlayerAsPole.first <= right && mPosPlayerAsPole.first >= left && mPosPlayerAsPole.second >= top && mPosPlayerAsPole.second <= bottom){
             if(this->get_selected_item_id() != nullptr){
                 if(nd[i]->get_id() == *this->get_selected_item_id()){
                     UNI_item* cstAction = dynamic_cast<UNI_item*>(nd[i]);

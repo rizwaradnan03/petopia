@@ -20,13 +20,10 @@ OBJECT_player::OBJECT_player(DtoRawMesh rawMesh, DtoCollider *collider)
   cam.target = (Vector2){iMesh->get_value().x, iMesh->get_value().y};
   cam.offset = (Vector2){static_cast<float>(hRes.first), static_cast<float>(hRes.second)};
   cam.rotation = 0.0f;
-  cam.zoom = 0.1f;
+  cam.zoom = 1.0f;
 
   SIGNATURE_camera *iCam = new SIGNATURE_camera(cam);
   this->set_camera(iCam);
-
-  std::cout << "contagious" << std::endl;
-  G_render->set_globalize_camera(&cam);
 
   G_object_player = this;
 
@@ -97,7 +94,6 @@ void OBJECT_player::object_collide(const std::vector<Body *> &objects) {
     return;
   }
 
-  bool avail[] = {true, true, true, true};
   for (int i = 0; i < objects.size(); i++) {
     if (objects[i]->get_id() == this->get_id()) {
       continue;
@@ -137,7 +133,7 @@ void OBJECT_player::Display() {
   this->get_mesh()->Execute();
 
   std::vector<GUI_container *> gc = this->get_gui_containers();
-   for(int i = 0;i < gc.size();i++){
+   for(uint8_t i = 0;i < gc.size();i++){
        gc[i]->Execute(this->get_mesh());
   }
 

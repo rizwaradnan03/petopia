@@ -12,24 +12,25 @@
 #include <nodes/2d/body/body_dynamic.h>
 #include <nodes/2d/body/body_static.h>
 #include <render_type/rt.h>
-#include <signature/s_garbage.h>
 #include <singleton/st_cache.h>
+#include <singleton/st_render.h>
 
-class OBJECT_player;
+class Uni;
 
-class RENDER_TYPE_world : public RenderType, public SIGNATURE_garbage {
-public:
-  RENDER_TYPE_world(std::string worldName);
-  ~RENDER_TYPE_world();
-  bool delete_checker(void *mem) override;
+class RENDER_TYPE_world : public RenderType {
+  public:
+    RENDER_TYPE_world(std::string worldName);
+    ~RENDER_TYPE_world();
+    bool delete_checker(void *mem) override;
 
-  std::vector<Body *> get_objects();
-  void set_objects(std::vector<Body *> value);
+    std::vector<std::pair<Uni*, SIGNATURE_mesh*>> get_objects() override;
+    void set_objects(std::vector<std::pair<Uni*, SIGNATURE_mesh*>> value) override;
+    void set_push_object(std::pair<Uni*, SIGNATURE_mesh*> value) override;
 
-  void Execute() override;
+    void Execute() override;
 
-private:
-  std::vector<Body *> objects;
+  private:
+    std::vector<std::pair<Uni*, SIGNATURE_mesh*>> objects;
 };
 
 #endif

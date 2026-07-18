@@ -1,3 +1,4 @@
+#include <render_type/rt.h>
 #include <render_type/rt_gui.h>
 #include <render_type/rt_world.h>
 #include <singleton/st_render.h>

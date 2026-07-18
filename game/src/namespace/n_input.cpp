@@ -21,8 +21,14 @@ namespace input {
     }
 
     std::pair<float, float> mouse_position_player_as_pole(){
-        SIGNATURE_mesh* plyMesh = G_object_player->get_mesh(); // NOT IMPLEMENTED SO FAR
+        SIGNATURE_mesh* plyMesh = G_object_player->get_mesh(); // THIS IS PLUSABLE
 
-        return std::make_pair(0.0,0.0);
+        std::pair<int, int> halfRes = sys::get_half_resolution();
+
+        std::pair<float, float> mPos = mouse_position();
+        mPos.first -= static_cast<float>(halfRes.first);
+        mPos.second -= static_cast<float>(halfRes.second);
+
+        return std::make_pair(static_cast<float>(plyMesh->get_value().x + mPos.first), static_cast<float>(plyMesh->get_value().y + mPos.second));
     }
 };

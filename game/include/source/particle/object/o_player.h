@@ -12,7 +12,7 @@
 #include <singleton/st_cache.h>
 #include <singleton/st_render.h>
 #include <source/particle/gui/g_inventory.h>
-#include <source/particle/uni/u_item.h>
+#include <nodes/2d/uni/uni_item.h>
 
 class OBJECT_player : public BODY_dynamic {
 public:

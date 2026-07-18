@@ -2,6 +2,7 @@
 #define NAMESPACE_INPUT_H
 
 #include <config/c_pch.h>
+#include <namespace/n_system.h>
 
 class OBJECT_player;
 

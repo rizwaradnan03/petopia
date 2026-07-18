@@ -1,7 +1,7 @@
 #include <nodes/2d/body/body.h>
 #include <nodes/2d/gui/gui.h>
 #include <singleton/st_cache.h>
-#include <source/particle/uni/u_item.h>
+#include <nodes/2d/uni/uni_item.h>
 
 SINGLETON_cache *G_cache = nullptr;
 
@@ -123,20 +123,7 @@ void SINGLETON_cache::init_gun() {
     float yVal = std::get<float>(it.second[1]);
     float wVal = std::get<float>(it.second[2]);
     float hVal = std::get<float>(it.second[3]);
-    std::string rawTxVal = std::get<std::string>(it.second[4]);
-
-    DtoRawMesh rawMesh;
-    rawMesh.rawTextures = {std::make_pair("default", rawTxVal)};
-
-    DtoPoleset *pGun = new DtoPoleset();
-    pGun->x = 0;
-    pGun->y = 0;
-
-    DtoItemAmount aGun;
-    aGun.amount = 1;
-
-    UNI_item *uGun = new UNI_item(rawMesh, pGun, aGun);
-    this->set_push_item(std::make_pair(it.first, uGun));
+    std::string rawTxVal = std::get<std::string>(it.second[4]); 
   }
 }
 

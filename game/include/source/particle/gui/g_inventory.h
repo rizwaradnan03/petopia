@@ -5,6 +5,7 @@
 #include <dto/dto_signature_mesh.h>
 #include <dto/dto_poleset.h>
 #include <namespace/n_identifier.h>
+#include <namespace/n_input.h>
 #include <nodes/2d/gui/gui_container.h>
 #include <nodes/2d/gui/gui_action.h>
 
@@ -20,11 +21,11 @@ class GUI_inventory: public GUI_container {
         std::string& get_id();
         void set_id(std::string value);
 
-        SIGNATURE_mesh* get_mesh();
-        void set_mesh(SIGNATURE_mesh* value);
+        SIGNATURE_mesh* get_mesh() override;
+        void set_mesh(SIGNATURE_mesh* value) override;
 
-        DtoPoleset* get_poleset();
-        void set_poleset(DtoPoleset* value);
+        DtoPoleset* get_poleset() override;
+        void set_poleset(DtoPoleset* value) override;
 
         std::vector<GUI_action*> get_nodes();
         void set_nodes(std::vector<GUI_action*> value);
@@ -33,13 +34,13 @@ class GUI_inventory: public GUI_container {
         std::string* get_selected_item_id();
         void set_selected_item_id(std::string* value);
 
-        void Display();
-        void UpdateDrill(SIGNATURE_mesh* meshDrill);
+        void Display() override;
+        void UpdateDrill(SIGNATURE_mesh* meshDrill) override;
 
         void action();
         void select_item_action();
 
-        void Execute(SIGNATURE_mesh* meshDrill);
+        void Execute(SIGNATURE_mesh* meshDrill) override;
 
     private:
         std::string id;

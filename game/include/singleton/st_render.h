@@ -3,8 +3,8 @@
 
 #include <config/c_pch.h>
 #include <dto/dto_render_type.h>
-#include <render_type/rt.h>
 
+class RenderType;
 class RENDER_TYPE_world;
 class RENDER_TYPE_gui;
 
