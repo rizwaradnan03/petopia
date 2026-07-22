@@ -17,6 +17,7 @@
 #include <singleton/st_render.h>
 
 class Uni;
+class OTHER_particle;
 
 class RenderType: public SIGNATURE_garbage {
     public:
@@ -28,10 +29,15 @@ class RenderType: public SIGNATURE_garbage {
         virtual void set_objects(std::vector<std::pair<Uni*, SIGNATURE_mesh*>> value);
         virtual void set_push_object(std::pair<Uni*, SIGNATURE_mesh*> value);
 
+        virtual std::vector<OTHER_particle*> get_particles();
+        virtual void set_particles(std::vector<OTHER_particle*> value);
+        virtual void set_push_particle(OTHER_particle* value);
+
         virtual void Execute();
 
-    private:
-        std::vector<std::pair<Uni*, SIGNATURE_mesh*>> objects;    
+        private:
+            std::vector<std::pair<Uni*, SIGNATURE_mesh*>> objects;
+            std::vector<OTHER_particle*> particles; // ATOM IN THE WORLD ACTUALLY 
 };
 
 #endif

@@ -67,6 +67,11 @@ void SINGLETON_cache::init_texture() {
       std::make_pair(DtoTextureType::BLOCK_DIRT, "./storage/sprites/CPC.png"),
       std::make_pair(DtoTextureType::BLOCK_SAND, "./storage/sprites/CPC.png"),
       std::make_pair(DtoTextureType::BLOCK_STONE, "./storage/sprites/CPC.png"),
+
+      // GUN
+      std::make_pair(DtoTextureType::GUN_BOW, "./storage/sprites/CPC.png"),
+      std::make_pair(DtoTextureType::GUN_PISTOL, "./storage/sprites/CPC.png"),
+      std::make_pair(DtoTextureType::GUN_DART, "./storage/sprites/CPC.png")
   };
 
   for (int i = 0; i < initialize.size(); i++) {

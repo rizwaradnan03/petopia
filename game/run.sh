@@ -19,8 +19,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# gdb \
-# -batch \
-# -ex "run" \
-# -ex "bt full" \
-# --args ./start
+gdb \
+-batch \
+-ex "run" \
+-ex "bt full" \
+--args ./game

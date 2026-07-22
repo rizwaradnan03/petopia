@@ -89,23 +89,27 @@ void Uni::set_item_amount(DtoItemAmount value){
     this->item_amount = value;
 }
 
-void Uni::usage_action(SIGNATURE_mesh *childAddr){
-
+void Uni::node_action(SIGNATURE_mesh *childAddr){
+    // self actions, its like npc doing whichever
 }
 
-void Uni::action(SIGNATURE_mesh *childAddr){
+void Uni::node_render(SIGNATURE_mesh *childAddr){ // -> rendered on render_type
+    this->node_action(childAddr);
     childAddr->Execute();
-    this->usage_action(childAddr);
 }
 
-void Uni::Display(){ // SECOND MESH IS OBJECT WHICH WE WILL PUSH INTO THE RENDER SYSTEM TO EXECUTE
-  SIGNATURE_mesh* mesh = this->get_mesh().first;
-  if(mesh != nullptr){
-    mesh->Execute();
+void Uni::action(){
+    // ?? depends on what to do
+}
+
+void Uni::Display(){ // SECOND MESH ACTUALLY AN OBJECT WHICH WE WILL PUSH INTO THE RENDER SYSTEM TO EXECUTE
+  SIGNATURE_mesh* gMesh  = this->get_gui_mesh();
+  if(gMesh != nullptr && this->get_item_amount().amount > 0){
+    gMesh->Execute();
   }
 }
 
-void Uni::UpdateDrill(SIGNATURE_mesh* meshDrill){ // mesh drill is from the container gui
+void Uni::UpdateDrill(SIGNATURE_mesh* meshDrill){ // mesh drill is from the container gui fuck
     float xDr = meshDrill->get_value().x;
     float yDr = meshDrill->get_value().y;
 

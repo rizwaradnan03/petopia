@@ -36,8 +36,10 @@ class UNI_item: public Uni {
         virtual DtoItemAmount& get_item_amount();
         virtual void set_item_amount(DtoItemAmount value);
 
-        virtual void action(SIGNATURE_mesh* childAddr);
-        virtual void usage_action(SIGNATURE_mesh* childAddr);
+        virtual void node_render(SIGNATURE_mesh* childAddr);
+        virtual void node_action(SIGNATURE_mesh* childAddr);
+
+        virtual void action();
 
         virtual void Execute(SIGNATURE_mesh* meshDrill);
         virtual void Display();

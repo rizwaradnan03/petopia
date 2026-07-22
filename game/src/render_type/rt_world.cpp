@@ -1,5 +1,8 @@
 #include <render_type/rt_world.h>
 #include <nodes/2d/uni/uni.h>
+#include <nodes/2d/oth/oth_particle.h>
+#include <nodes/2d/oth/oth_projectile.h>
+// #include <source/particle/object/o_player.h>
 
 RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName) : RenderType(worldName) {
   std::string strized = "render/world/" + worldName;
@@ -20,7 +23,8 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName) : RenderType(worldNa
   DtoCollider *pCol = new DtoCollider();
   pCol->layer = 1;
   pCol->mask = {1, 2, 3};
-  // Body *player = new OBJECT_player(cart, pCol);
+  OBJECT_player *player = new OBJECT_player(cart, pCol);
+  this->set_player(player);
   // obj.push_back(player);
 
   this->set_objects(obj);
@@ -28,9 +32,15 @@ RENDER_TYPE_world::RENDER_TYPE_world(std::string worldName) : RenderType(worldNa
 
 RENDER_TYPE_world::~RENDER_TYPE_world() {
   std::vector<std::pair<Uni*, SIGNATURE_mesh*>> obj = this->get_objects();
-  for (uint16_t i = 0; i < obj.size(); i++) {
-    delete obj[i].first;
-    delete obj[i].second;
+  std::vector<OTHER_particle*> prt;
+
+  for (uint16_t i = 0; i < obj.size() + prt.size(); i++) {
+    if(i < obj.size()){
+      delete obj[i].first;
+      delete obj[i].second;
+    }else{
+      delete prt[i - obj.size()];
+    }
   }
 }
 
@@ -52,12 +62,46 @@ void RENDER_TYPE_world::set_push_object(std::pair<Uni*, SIGNATURE_mesh*> value){
     this->objects.push_back(value);
 }
 
+std::vector<OTHER_particle*> RENDER_TYPE_world::get_particles() { return this->particles; }
+
+void RENDER_TYPE_world::set_particles(std::vector<OTHER_particle*> value) {
+  this->particles = value;
+}
+
+void RENDER_TYPE_world::set_push_particle(OTHER_particle* value){
+  if(OTHER_projectile* trs = dynamic_cast<OTHER_projectile*>(value)){
+    this->set_push_asb_projectile(trs);
+  }
+    
+  this->particles.push_back(value);
+}
+
+std::vector<OTHER_projectile*> RENDER_TYPE_world::get_asb_projectiles() { return this->asb_projectiles; }
+
+void RENDER_TYPE_world::set_asb_projectiles(std::vector<OTHER_projectile*> value) {
+  this->asb_projectiles = value;
+}
+
+void RENDER_TYPE_world::set_push_asb_projectile(OTHER_projectile* value){
+    this->asb_projectiles.push_back(value);
+}
+
+OBJECT_player* RENDER_TYPE_world::get_player(){
+  return this->player;
+}
+
+void RENDER_TYPE_world::set_player(OBJECT_player* value){
+  this->player = value;
+}
+
 void RENDER_TYPE_world::Execute() {
   BeginMode2D(*G_render->get_globalize_camera());
 
-  std::vector<std::pair<Uni*, SIGNATURE_mesh*>> objs = this->get_objects();
-  for (uint16_t i = 0; i < objs.size(); i++) {
-    std::pair<Uni*, SIGNATURE_mesh*> b = objs[i];
+  // TODO: every frame i need to make an array of object mesh so i can put into the player while i need to assume the collission
+  this->get_player()->Execute({});
+
+  for (uint16_t i = 0; i < this->get_objects().size(); i++) {
+    std::pair<Uni*, SIGNATURE_mesh*> b = this->get_objects()[i];
 
     bool c = this->delete_checker(b.second);
     if (c == true) {
@@ -66,7 +110,20 @@ void RENDER_TYPE_world::Execute() {
       continue;
     }
 
-    b.first->action(b.second);
+    b.first->node_render(b.second);
+  }
+
+  for(uint16_t i = 0;i < this->get_particles().size();i++){
+    OTHER_particle* p = this->get_particles()[i];
+
+    bool c = this->delete_checker(p);
+    if(c == true){
+      this->get_particles().erase(this->get_particles().begin() + i);
+      i--;
+      continue;
+    }
+
+    p->Execute();
   }
 
   EndMode2D();

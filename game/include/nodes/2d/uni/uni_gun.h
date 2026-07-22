@@ -1,5 +1,5 @@
-#ifndef UNI_H
-#define UNI_H
+#ifndef UNI_GUN_H
+#define UNI_GUN_H
 
 #include <config/c_pch.h>
 #include <dto/dto_poleset.h>
@@ -8,13 +8,13 @@
 #include <namespace/n_identifier.h>
 #include <namespace/n_input.h>
 #include <signature/s_mesh.h>
-#include <singleton/st_render.h> // st render is globalize render
-#include <render_type/rt.h>
+#include <nodes/2d/uni/uni_item.h>
 
-class Uni { 
+class UNI_gun: public UNI_item { 
     public:
-        Uni(std::pair<DtoRawMesh*, DtoRawMesh*> rawMesh, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
-        ~Uni();
+        UNI_gun(std::pair<DtoRawMesh*, DtoRawMesh*> rawMesh, DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
+        UNI_gun(DtoPoleset* poleSet, DtoItemAmount itemAmountDto);
+        ~UNI_gun();
 
         virtual std::string& get_id();
         virtual void set_id(std::string value);
@@ -50,7 +50,7 @@ class Uni {
 
     private:
         std::string id;
-
+        
         std::pair<SIGNATURE_mesh*, SIGNATURE_mesh*> mesh; // first is for gui & second is for object on mother of nodes
         std::vector<SIGNATURE_mesh*> nodes; // this is what gonna be on render type
 
@@ -60,4 +60,5 @@ class Uni {
 };
 
 #endif
+
 
